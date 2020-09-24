@@ -26,16 +26,4 @@ var save = (trip) => {
   });
 }
 
-var trip = {
-  id: 2,
-  locationName: 'Fiesta Americana Condesa Cancun All Inclusive',
-  locationId: 1,
-  checkIn: '2020-10-15',
-  checkOut: '2020-10-22',
-  adults: 2,
-  children: 3,
-  rooms: 2
-}
-
-//module.exports.save = save;
-save(trip);
+module.exports.save = save;
