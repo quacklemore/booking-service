@@ -10,6 +10,7 @@
     "babel-loader": "^8.1.0",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
+    "faker": "^5.1.0",
     "mongodb": "^3.6.2",
     "mongoose": "^5.10.6",
     "react": "^16.13.1",
@@ -18,6 +19,7 @@
     "webpack": "^4.44.2"
   },
   "scripts": {
+    "seedDB": "node database/seedDB.js"
   },
   "repository": {
     "type": "git",

@@ -1,6 +1,9 @@
 const mongoose = require('mongoose');
 var dbUrl = 'mongodb://localhost/booking'
-mongoose.connect(dbUrl);
+mongoose.connect(dbUrl, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+});
 
 let tripSchema = mongoose.Schema({
   locationName: String,
