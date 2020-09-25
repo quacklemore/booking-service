@@ -29,4 +29,18 @@ var save = (trip) => {
   });
 }
 
+var getReservationsForLocation = (locationId) => {
+  return new Promise((resolve, reject) => {
+    Trip.find({
+      locationId: locationId
+    }, (err, results) => {
+      if (err) {
+        reject(err);
+      } else {
+        resolve(results);
+      }
+    })
+  })
+}
+
 module.exports.save = save;
