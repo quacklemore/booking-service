@@ -1,10 +1,12 @@
 const db = require('../database/index.js');
-
+const path = require('path');
 const express = require('express');
 
 const app = express();
 
 const PORT = 4002;
+
+app.use(express.static(path.join(__dirname, '..','public')));
 
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
