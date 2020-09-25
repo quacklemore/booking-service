@@ -33,7 +33,7 @@ var getReservationsForLocation = (locationId) => {
   return new Promise((resolve, reject) => {
     Trip.find({
       locationId: locationId
-    }, (err, results) => {
+    }).exec((err, results) => {
       if (err) {
         reject(err);
       } else {
@@ -44,3 +44,4 @@ var getReservationsForLocation = (locationId) => {
 }
 
 module.exports.save = save;
+module.exports.getReservationsForLocation = getReservationsForLocation;
