@@ -11,8 +11,8 @@ app.use(express.static(path.join(__dirname, '..','public')));
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
-app.get('/api/trips/:id', (req, res) => {
-  db.getReservationsForLocation(req.params.id)
+app.get('/api/trips/', (req, res) => {
+  db.getReservationsForLocation(req.body.id)
   .then(result => {
     res.send(result);
   });
