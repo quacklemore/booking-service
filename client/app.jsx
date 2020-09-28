@@ -8,24 +8,21 @@ import axios from 'axios';
 const BookingApp = () => {
   const [hello, setHello] = useState(true);
   const [trips, setTrips] = useState([]);
-  //console.log(db)
   useEffect(() => {
     axios({
-      url: '/api/trips',
+      url: '/api/trips/0',
       method: 'get',
-      data: {id: 1}
     })
-    /.then((result) => {
-      console.log(result.data)
-      setTrips(result.data);
+    .then((result) => {
+      setTrips(result.data)
     })
-  })
+  },[])
 
   if (hello){
   return (
     <div>
     <h1 onClick={() => setHello(false)}>Hello</h1>
-    <div>{trips}</div>
+    {trips.map(trip=> <div key={trip._id}>{trip._id}</div>)}
     </div>
 
   );
