@@ -6,7 +6,6 @@ mongoose.connect(dbUrl, {
 });
 
 let tripSchema = mongoose.Schema({
-  locationName: String,
   locationId: {type: Number, required: true},
   checkIn: {type: Date, required: true},
   checkOut: {type: Date, required: true},
@@ -15,7 +14,14 @@ let tripSchema = mongoose.Schema({
   rooms: {type: Number, required: true}
 });
 
+let locationSchema = mongoose.Schema({
+  locationId: {type: Number, required: true},
+  rooms: {type: Number, required: true},
+  name: String
+})
+
 let Trip = mongoose.model('Trip', tripSchema);
+let Location = mongoose.model('Location', locationSchema);
 
 var save = (trip) => {
   return new Promise((resolve, reject) => {
@@ -39,9 +45,26 @@ var getReservationsForLocation = (locationId) => {
       } else {
         resolve(results);
       }
-    })
-  })
+    });
+  });
+}
+
+var createLocation = (location) => {
+  return new Promise((resolve, reject) => {
+    Location.create({
+      locationId: location.id,
+      rooms: location.rooms,
+      name: location.name
+    }, (err, results) => {
+      if (err) {
+        reject(err);
+      } else {
+        resolve(results);
+      }
+    });
+  });
 }
 
 module.exports.save = save;
 module.exports.getReservationsForLocation = getReservationsForLocation;
+module.exports.createLocation = createLocation;
