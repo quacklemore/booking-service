@@ -11,12 +11,19 @@ const Day = styled.td`
   height: 36px;
   vertical-align: top;
   position: relative;
+  text-align: center;
 `;
 
-var CalendarDay = ({day}) => {
-  return(
-    <Day>{day}</Day>
-  )
+var CalendarDay = ({day, setCheckIn}) => {
+  if (day) {
+    return(
+      <Day onClick={(event) => setCheckIn(day)}>{day.getDate()}</Day>
+    )
+  } else {
+    return (
+      <Day />
+    )
+  }
 }
 
 export default CalendarDay;

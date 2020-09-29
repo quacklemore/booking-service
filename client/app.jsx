@@ -14,7 +14,7 @@ const Calendars = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
   position: relative;
-
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,.25);
 `;
 
 const StyledBookingApp = styled.div`
@@ -30,7 +30,9 @@ const BookingApp = () => {
   const [month1, setMonth1] = useState((new Date()).getMonth());
   const [month2, setMonth2] = useState(month1 + 1);
   const [year, setYear] = useState((new Date()).getFullYear())
-  const [showCalendars, setShowCalendars] = useState(false);
+  const [showCalendars, setShowCalendars] = useState(true);
+  const [checkIn, setCheckIn] = useState();
+
   useEffect(() => {
     axios({
       url: '/api/trips/0',
@@ -39,21 +41,23 @@ const BookingApp = () => {
     .then((result) => {
       setTrips(result.data)
     })
-  },[])
+  },[]);
+
+
 
   if (!showCalendars) {
     return (
       <StyledBookingApp>
-        <Booking setShowCalendars={setShowCalendars} showCalendars={showCalendars}/>
+        <Booking setShowCalendars={setShowCalendars} showCalendars={showCalendars} checkIn={checkIn}/>
       </StyledBookingApp>
     );
   } else {
     return (
       <StyledBookingApp>
-        <Booking setShowCalendars={setShowCalendars} showCalendars={showCalendars}/>
+        <Booking setShowCalendars={setShowCalendars} showCalendars={showCalendars} checkIn={checkIn}/>
         <Calendars>
-          <CalendarMonth month={month1} year={year}/>
-          <CalendarMonth month={month2} year={year}/>
+          <CalendarMonth month={month1} year={year} setCheckIn={setCheckIn}/>
+          <CalendarMonth month={month2} year={year} setCheckIn={setCheckIn}/>
         </Calendars>
       </StyledBookingApp>
     );

@@ -12,6 +12,7 @@ const Day = styled.td`
   height: 36px;
   line-height: 36px;
   font-size: 11px;
+  text-align: center;
 `;
 
 var DaysOfTheWeek = () => {

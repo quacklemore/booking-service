@@ -8,13 +8,13 @@ import Calendar from '../helpers/calendar.js';
 
 const Month = styled.table`
     border-color: #e0e0e0;
-    border-width: 1px;
+    border-width: 0 0 0 2px;
     border-style: solid;
     padding: 0 16px;
     margin: 12px 0;
   `;
 
-var CalendarMonth = ({month, year}) => {
+var CalendarMonth = ({month, year, setCheckIn}) => {
   let cal = new Calendar();
   let weeks = cal.daysInWeeks(month, year);
   let first = cal.firstDay(month,year);
@@ -24,7 +24,7 @@ var CalendarMonth = ({month, year}) => {
         <DaysOfTheWeek />
       </thead>
       <tbody>
-        { weeks.map((week, index) => <CalendarWeek weeks={weeks} start={(index === 0) ? first : 0} week={index} key={index}/> )}
+        { weeks.map((week, index) => <CalendarWeek weeks={weeks} start={(index === 0) ? first : 0} week={index} key={index} setCheckIn={setCheckIn} month={month} year={year}/> )}
       </tbody>
     </Month>
   );
