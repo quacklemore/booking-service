@@ -1,16 +1,21 @@
 import React, {useState, useEffect} from 'react';
 import ReactDOM from 'react-dom';
 
+import axios from 'axios';
+import moment from 'moment';
+
 import CalendarMonth from './components/CalendarMonth.jsx';
 
-import axios from 'axios';
+import Calendar from './lib/calendar.js';
 
 
 
 const BookingApp = () => {
-  const [hello, setHello] = useState(true);
   const [trips, setTrips] = useState([]);
-  console.log(firstDay);
+  const [month1, setMonth1] = useState((new Date()).getMonth());
+  const [month2, setMonth2] = useState(month1 + 1);
+  const [year, setYear] = useState((new Date()).getFullYear())
+
   useEffect(() => {
     axios({
       url: '/api/trips/0',
@@ -21,19 +26,13 @@ const BookingApp = () => {
     })
   },[])
 
-  if (hello){
   return (
     <div>
-    <h1 onClick={() => setHello(false)}>Hello</h1>
-    <CalendarMonth />
+      <CalendarMonth month={month1} year={year}/>
+      <CalendarMonth month={month2} year={year}/>
     </div>
-
   );
-  } else {
-    return (
-      <h1 onClick={() => setHello(true)}>Goodbye</h1>
-    )
-  }
+
 }
 
 ReactDOM.render(<BookingApp />, document.getElementById('booking-app'));

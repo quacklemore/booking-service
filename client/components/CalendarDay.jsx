@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import ReactDOM from 'react-dom';
 import styled from 'styled-components';
 
-const Day = styled.div`
+const Day = styled.td`
   height: 100px;
   width:100px;
   border-color: black;
@@ -10,9 +10,9 @@ const Day = styled.div`
   border-style: solid;
 `;
 
-var CalendarDay = () => {
+var CalendarDay = ({day}) => {
   return(
-    <Day>DAY</Day>
+    <Day>{day}</Day>
   )
 }
 
