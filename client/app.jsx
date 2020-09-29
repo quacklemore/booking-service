@@ -6,7 +6,7 @@ import moment from 'moment';
 
 import CalendarMonth from './components/CalendarMonth.jsx';
 
-import Calendar from './lib/calendar.js';
+import Calendar from './helpers/calendar.js';
 
 
 
