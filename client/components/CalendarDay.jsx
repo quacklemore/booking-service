@@ -3,11 +3,14 @@ import ReactDOM from 'react-dom';
 import styled from 'styled-components';
 
 const Day = styled.td`
-  height: 100px;
-  width:100px;
-  border-color: black;
-  border-width: 3px;
+  border-width: 2px;
   border-style: solid;
+  border-color: white;
+  margin: -2px 0 0 -2px;
+  line-height: 36px;
+  height: 36px;
+  vertical-align: top;
+  position: relative;
 `;
 
 var CalendarDay = ({day}) => {
