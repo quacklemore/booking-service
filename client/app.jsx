@@ -17,6 +17,7 @@ const Calendars = styled.div`
   box-shadow: 0 2px 4px 0 rgba(0,0,0,.25);
 `;
 
+
 const StyledBookingApp = styled.div`
   position: relative;
   height: 50%;
@@ -56,8 +57,8 @@ const BookingApp = () => {
       <StyledBookingApp>
         <Booking setShowCalendars={setShowCalendars} showCalendars={showCalendars} checkIn={checkIn}/>
         <Calendars>
-          <CalendarMonth month={month1} year={year} setCheckIn={setCheckIn}/>
-          <CalendarMonth month={month2} year={year} setCheckIn={setCheckIn}/>
+          <CalendarMonth month={month1} year={year} setCheckIn={setCheckIn} month1={true}/>
+          <CalendarMonth month={month2} year={year} setCheckIn={setCheckIn} month1={false}/>
         </Calendars>
       </StyledBookingApp>
     );
