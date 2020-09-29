@@ -27,6 +27,7 @@ var CalendarMonth = ({month, year, setCheckIn, month1}) => {
     return (
       <Month>
         <thead>
+          <tr><td>{`${cal.monthName(month)} ${year}`}</td></tr>
           <DaysOfTheWeek />
         </thead>
         <tbody>
@@ -38,6 +39,7 @@ var CalendarMonth = ({month, year, setCheckIn, month1}) => {
     return (
       <NoBorderMonth>
         <thead>
+        <tr><td>{`${cal.monthName(month)} ${year}`}</td></tr>
           <DaysOfTheWeek />
         </thead>
         <tbody>
