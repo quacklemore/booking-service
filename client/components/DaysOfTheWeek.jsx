@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import ReactDOM from 'react-dom';
 import styled from 'styled-components';
 
-const StyledDaysOfTheWeek = styled.div`
+const StyledDaysOfTheWeek = styled.tr`
   display: grid;
   grid-template-areas: 'sunday monday tuesday wednesday thursday friday saturday';
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
@@ -12,13 +12,13 @@ const StyledDaysOfTheWeek = styled.div`
 var DaysOfTheWeek = () => {
   return (
     <StyledDaysOfTheWeek>
-      <div>Sunday</div>
-      <div>Monday</div>
-      <div>Tuesday</div>
-      <div>Wednesday</div>
-      <div>Thursday</div>
-      <div>Friday</div>
-      <div>Saturday</div>
+      <td>Sunday</td>
+      <td>Monday</td>
+      <td>Tuesday</td>
+      <td>Wednesday</td>
+      <td>Thursday</td>
+      <td>Friday</td>
+      <td>Saturday</td>
     </StyledDaysOfTheWeek>
   );
 }
