@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import ReactDOM from 'react-dom';
 import styled from 'styled-components';
 import CalendarWeek from './calendarWeek.jsx';
+import DaysOfTheWeek from './DaysOfTheWeek.jsx';
 
 const Month = styled.div`
     background: palevioletred;
@@ -11,7 +12,7 @@ const Month = styled.div`
       'week2'
       'week3'
       'week4';
-      grid-template-rows: 1fr 1fr 1fr 1fr;
+      grid-template-rows: 1fr 3fr 3fr 3fr 3fr;
 
   `;
 
@@ -19,6 +20,7 @@ var CalendarMonth = () => {
 
   return (
     <Month>
+      <DaysOfTheWeek />
       <CalendarWeek />
       <CalendarWeek />
       <CalendarWeek />

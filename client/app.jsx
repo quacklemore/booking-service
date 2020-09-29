@@ -10,6 +10,7 @@ import axios from 'axios';
 const BookingApp = () => {
   const [hello, setHello] = useState(true);
   const [trips, setTrips] = useState([]);
+  console.log(firstDay);
   useEffect(() => {
     axios({
       url: '/api/trips/0',
