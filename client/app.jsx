@@ -1,6 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import ReactDOM from 'react-dom';
 
+import CalendarMonth from './components/CalendarMonth.jsx';
+
 import axios from 'axios';
 
 
@@ -22,7 +24,7 @@ const BookingApp = () => {
   return (
     <div>
     <h1 onClick={() => setHello(false)}>Hello</h1>
-    {trips.map(trip=> <div key={trip._id}>{trip._id}</div>)}
+    <CalendarMonth />
     </div>
 
   );
