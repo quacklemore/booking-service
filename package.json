@@ -28,7 +28,8 @@
     "start": "node server/index.js",
     "server-dev": "nodemon server/index.js",
     "seedDB": "node database/seedDB.js",
-    "react-dev": "webpack -d --watch"
+    "react-dev": "webpack -d --watch",
+    "test": "jest --coverage"
   },
   "repository": {
     "type": "git",

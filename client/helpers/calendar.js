@@ -1,6 +1,6 @@
 class Calendar {
   constructor() {
-    let daysOfTheWeek = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
+
 
   }
 
@@ -8,9 +8,7 @@ class Calendar {
     let days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
     return days[day];
   }
-  month(month, year) { //month parameter is 0-11 for corresponding month
-    let firstDay = new Date(year, month).getDay();
-  }
+
 
   daysInWeeks(month, year) {
     let first = this.firstDay(month, year);
