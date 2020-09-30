@@ -3,8 +3,7 @@ jobs:
   build:
     docker:
     # Primary container image where all steps run.
-     - image: buildpack-deps:trusty
-  
+     - image: cimg/node:12.16.3
     steps:
       - checkout
       - restore_cache:
