@@ -8,17 +8,23 @@ const StyledDaysOfTheWeek = styled.tr`
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
 `;
 
+const Day = styled.td`
+  height: 36px;
+  line-height: 36px;
+  font-size: 11px;
+  text-align: center;
+`;
 
 var DaysOfTheWeek = () => {
   return (
     <StyledDaysOfTheWeek>
-      <td>Sunday</td>
-      <td>Monday</td>
-      <td>Tuesday</td>
-      <td>Wednesday</td>
-      <td>Thursday</td>
-      <td>Friday</td>
-      <td>Saturday</td>
+      <Day>Sun</Day>
+      <Day>Mon</Day>
+      <Day>Tue</Day>
+      <Day>Wed</Day>
+      <Day>Thu</Day>
+      <Day>Fri</Day>
+      <Day>Sat</Day>
     </StyledDaysOfTheWeek>
   );
 }

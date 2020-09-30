@@ -8,7 +8,7 @@ const Week = styled.tr`
   grid-template-areas: 'sunday monday tuesday wednesday thursday friday saturday';
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
 `;
-var CalendarWeek = ({weeks, start, week}) => {
+var CalendarWeek = ({weeks, start, week, setCheckIn, month, year}) => {
   let days = [];
   let count = 0;
   for ( var i = 0; i < week; i++) {
@@ -17,7 +17,8 @@ var CalendarWeek = ({weeks, start, week}) => {
   count++;
   for (var i = 0; i < 7; i++) {
     if ((start > 0 && i >= start) || (start === 0 && i < weeks[week])) {
-      days.push(count);
+      let day = new Date(year, month, count);
+      days.push(day);
       count++;
     } else {
       days.push(undefined);
@@ -27,7 +28,7 @@ var CalendarWeek = ({weeks, start, week}) => {
 
   return (
     <Week>
-      {days.map((day, index) => <CalendarDay day={day} key={index}/>)}
+      {days.map((day, index) => <CalendarDay day={day} key={index} setCheckIn={setCheckIn}/>)}
     </Week>
   )
 }
