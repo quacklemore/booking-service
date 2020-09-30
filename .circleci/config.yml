@@ -2,6 +2,10 @@ version: 2.1
 orbs: circleci/node
 jobs:
   build:
+    docker:
+    # Primary container image where all steps run.
+     - image: buildpack-deps:trusty
+  
     steps:
       - checkout
       - restore_cache:
