@@ -55,7 +55,7 @@ const BookingApp = () => {
     return (
       <StyledBookingApp>
         <Booking setShowCalendars={setShowCalendars} showCalendars={showCalendars} checkIn={checkIn}/>
-        <Calendar />
+        <Calendar year={year} month1={month1} month2={month2}/>
       </StyledBookingApp>
     );
   }

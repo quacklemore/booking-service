@@ -2,6 +2,8 @@ import React, {useState, useEffect} from 'react';
 import ReactDOM from 'react-dom';
 import styled from 'styled-components'
 
+import CalendarMonth from './CalendarMonth.jsx';
+
 const StyledCalendarComponent = styled.div `
   position: absolute;
   top: 464px;
@@ -37,7 +39,9 @@ const PickerPointer = styled.div `
 `;
 
 const StyledCalendar = styled.div `
-
+  white-space: nowrap;
+  text-align: center;
+  display: block;
 `;
 
 const TopBar = styled.div `
@@ -94,7 +98,7 @@ const LeftChevron = styled(Chevron) `
   float: left;
 `;
 
-const Calendar = () => {
+const Calendar = ({month1, month2, year}) => {
   return (
     <StyledCalendarComponent>
       <CalendarBox>
@@ -110,6 +114,10 @@ const Calendar = () => {
             <div>
              <LeftChevron>{'<'}</LeftChevron>
              <RightChevron>{'>'}</RightChevron>
+             <StyledCalendar>
+               <CalendarMonth month={month1} year={year}/>
+               <CalendarMonth month={month2} year={year}/>
+             </StyledCalendar>
             </div>
           </DayPicker>
         </div>

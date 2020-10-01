@@ -6,16 +6,24 @@ import DaysOfTheWeek from './DaysOfTheWeek.jsx';
 
 import Calendar from '../helpers/calendar.js';
 
-const Month = styled.table`
-  border-color: #e0e0e0;
-  border-width: 0 0 0 2px;
-  border-style: solid;
-  padding: 0 16px;
-  margin: 12px 0;
-`;
+// const Month = styled.div`
+//   border-color: #e0e0e0;
+//   border-width: 0 0 0 2px;
+//   border-style: solid;
+//   padding: 0 16px;
+//   margin: 12px 0;
+// `;
 
-const NoBorderMonth = styled(Month)`
-  border-width: 0 0 0 0;
+// const NoBorderMonth = styled(Month)`
+//   border-width: 0 0 0 0;
+// `;
+
+const MonthHeading = styled.div `
+    position: absolute;
+    box-sizing: border-box;
+    width: 100%;
+    top: 0;
+    padding: 5px 7px;
 `;
 
 var CalendarMonth = ({month, year, setCheckIn, month1}) => {
@@ -23,31 +31,40 @@ var CalendarMonth = ({month, year, setCheckIn, month1}) => {
   let weeks = cal.daysInWeeks(month, year);
   let first = cal.firstDay(month,year);
 
-  if (!month1) {
+  //if (!month1) {
     return (
-      <Month>
-        <thead>
-          <tr><td>{`${cal.monthName(month)} ${year}`}</td></tr>
-          <DaysOfTheWeek />
-        </thead>
-        <tbody>
-          { weeks.map((week, index) => <CalendarWeek weeks={weeks} start={(index === 0) ? first : 0} week={index} key={index} setCheckIn={setCheckIn} month={month} year={year}/> )}
-        </tbody>
-      </Month>
+      <div>
+        <MonthHeading>
+        {`${cal.monthName(month)} ${year}`}
+        </MonthHeading>
+        <DaysOfTheWeek />
+      </div>
     );
-  } else {
-    return (
-      <NoBorderMonth>
-        <thead>
-        <tr><td>{`${cal.monthName(month)} ${year}`}</td></tr>
-          <DaysOfTheWeek />
-        </thead>
-        <tbody>
-          { weeks.map((week, index) => <CalendarWeek weeks={weeks} start={(index === 0) ? first : 0} week={index} key={index} setCheckIn={setCheckIn} month={month} year={year}/> )}
-        </tbody>
-      </NoBorderMonth>
-    )
-  }
+ // }
 }
 
 export default CalendarMonth;
+
+{/* <Month>
+<thead>
+  <tr><td>{`${cal.monthName(month)} ${year}`}</td></tr>
+  <DaysOfTheWeek />
+</thead>
+<tbody>
+  { weeks.map((week, index) => <CalendarWeek weeks={weeks} start={(index === 0) ? first : 0} week={index} key={index} setCheckIn={setCheckIn} month={month} year={year}/> )}
+</tbody>
+</Month>
+);
+} else {
+return (
+<NoBorderMonth>
+<thead>
+<tr><td>{`${cal.monthName(month)} ${year}`}</td></tr>
+  <DaysOfTheWeek />
+</thead>
+<tbody>
+  { weeks.map((week, index) => <CalendarWeek weeks={weeks} start={(index === 0) ? first : 0} week={index} key={index} setCheckIn={setCheckIn} month={month} year={year}/> )}
+</tbody>
+</NoBorderMonth>
+)
+} */}

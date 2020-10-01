@@ -23,7 +23,7 @@ const DatesButton = styled.button `
   border-radius: 3px;
   box-shadow: 0 1px 2px rgba(0,0,0,.1);
 
-  font: 400 13.3333px Arial;
+
 `;
 
 
@@ -74,6 +74,10 @@ const CheckInOutDate = styled.span `
   line-height: 20px;
 `;
 
+const Months = styled.div `
+  white-space: nowrap;
+  text-align: center;
+`;
 let Booking = ({setShowCalendars, showCalendars, checkIn}) => {
 
 
