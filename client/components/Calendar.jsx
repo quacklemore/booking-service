@@ -66,6 +66,34 @@ const LowPrice = styled.span `
   border-radius: 2px;
 `;
 
+const DayPicker = styled.div `
+
+`;
+
+const Chevron = styled.button `
+    height: 36px;
+    width: 36px;
+    line-height: 36px;
+    text-align: center;
+    color: #474747;
+    cursor: pointer;
+    font-size: 20px;
+    transition: color .3s;
+    border: none;
+    text-decoration: none;
+    background: #fff;
+    padding: 0;
+    font-family: inherit;
+`;
+
+const RightChevron = styled(Chevron) `
+  float: right;
+`;
+
+const LeftChevron = styled(Chevron) `
+  float: left;
+`;
+
 const Calendar = () => {
   return (
     <StyledCalendarComponent>
@@ -75,10 +103,15 @@ const Calendar = () => {
             Select a date to continue
             <TopBarInset>
               <LowPrice></LowPrice>
-              Lowest Priced Dates
+              {' Lowest Priced Dates'}
             </TopBarInset>
-
           </TopBar>
+          <DayPicker>
+            <div>
+             <LeftChevron>{'<'}</LeftChevron>
+             <RightChevron>{'>'}</RightChevron>
+            </div>
+          </DayPicker>
         </div>
         <PickerPointer></PickerPointer>
       </CalendarBox>
