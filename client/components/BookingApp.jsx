@@ -19,10 +19,8 @@ const Calendars = styled.div`
 
 
 const StyledBookingApp = styled.div`
-  position: relative;
-  height: 50%;
-  width: 40%;
-  font-family: 'Trip Sans', Arial, sans-serif !important;
+  margin: 8px 0;
+  height: 44px;
 `;
 
 
@@ -31,7 +29,7 @@ const BookingApp = () => {
   const [month1, setMonth1] = useState((new Date()).getMonth());
   const [month2, setMonth2] = useState(month1 + 1);
   const [year, setYear] = useState((new Date()).getFullYear())
-  const [showCalendars, setShowCalendars] = useState(true);
+  const [showCalendars, setShowCalendars] = useState(false);
   const [checkIn, setCheckIn] = useState();
 
   useEffect(() => {
@@ -46,24 +44,26 @@ const BookingApp = () => {
 
 
 
-  if (!showCalendars) {
+  //if (!showCalendars) {
     return (
       <StyledBookingApp>
         <Booking setShowCalendars={setShowCalendars} showCalendars={showCalendars} checkIn={checkIn}/>
       </StyledBookingApp>
     );
-  } else {
-    return (
-      <StyledBookingApp>
-        <Booking setShowCalendars={setShowCalendars} showCalendars={showCalendars} checkIn={checkIn}/>
-        <Calendars>
-          <CalendarMonth month={month1} year={year} setCheckIn={setCheckIn} month1={true}/>
-          <CalendarMonth month={month2} year={year} setCheckIn={setCheckIn} month1={false}/>
-        </Calendars>
-      </StyledBookingApp>
-    );
-  }
+ // }
 
 }
 
 export default BookingApp;
+
+// else {
+//   return (
+//     <StyledBookingApp>
+//       <Booking setShowCalendars={setShowCalendars} showCalendars={showCalendars} checkIn={checkIn}/>
+//       <Calendars>
+//         <CalendarMonth month={month1} year={year} setCheckIn={setCheckIn} month1={true}/>
+//         <CalendarMonth month={month2} year={year} setCheckIn={setCheckIn} month1={false}/>
+//       </Calendars>
+//     </StyledBookingApp>
+//   );
+// }
