@@ -4,18 +4,19 @@ import styled from 'styled-components'
 import axios from 'axios';
 import moment from 'moment';
 
-import CalendarMonth from './CalendarMonth.jsx';
+import Calendar from './Calendar.jsx';
 import Booking from './Booking.jsx';
 
-import Calendar from '../helpers/calendar.js';
 
 
-const Calendars = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  position: relative;
-  box-shadow: 0 2px 4px 0 rgba(0,0,0,.25);
-`;
+
+
+// const Calendars = styled.div`
+//   display: grid;
+//   grid-template-columns: 1fr 1fr;
+//   position: relative;
+//   box-shadow: 0 2px 4px 0 rgba(0,0,0,.25);
+// `;
 
 
 const StyledBookingApp = styled.div`
@@ -44,26 +45,23 @@ const BookingApp = () => {
 
 
 
-  //if (!showCalendars) {
+  if (!showCalendars) {
     return (
       <StyledBookingApp>
         <Booking setShowCalendars={setShowCalendars} showCalendars={showCalendars} checkIn={checkIn}/>
       </StyledBookingApp>
     );
- // }
-
+  } else {
+    return (
+      <StyledBookingApp>
+        <Booking setShowCalendars={setShowCalendars} showCalendars={showCalendars} checkIn={checkIn}/>
+        <Calendar />
+      </StyledBookingApp>
+    );
+  }
 }
+
+
 
 export default BookingApp;
 
-// else {
-//   return (
-//     <StyledBookingApp>
-//       <Booking setShowCalendars={setShowCalendars} showCalendars={showCalendars} checkIn={checkIn}/>
-//       <Calendars>
-//         <CalendarMonth month={month1} year={year} setCheckIn={setCheckIn} month1={true}/>
-//         <CalendarMonth month={month2} year={year} setCheckIn={setCheckIn} month1={false}/>
-//       </Calendars>
-//     </StyledBookingApp>
-//   );
-// }

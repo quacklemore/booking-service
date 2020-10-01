@@ -9,6 +9,7 @@ const CheckRates = styled.div`
   flex-basis: auto;
   width: 419px;
   flex: none;
+  font: 400 13.3333px Arial;
 `;
 
 const MetaInner = styled.div`
@@ -47,6 +48,7 @@ const BookingModule = () => (
       <TripSearch>
         <ReactContainer>
           <BookingApp />
+
         </ReactContainer>
       </TripSearch>
     </MetaInner>
