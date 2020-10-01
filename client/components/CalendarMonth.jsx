@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import ReactDOM from 'react-dom';
 import styled from 'styled-components';
-import CalendarWeek from './calendarWeek.jsx';
+import CalendarWeek from './CalendarWeek.jsx';
 import DaysOfTheWeek from './DaysOfTheWeek.jsx';
 
 import Calendar from '../helpers/calendar.js';
