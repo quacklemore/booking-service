@@ -17,16 +17,33 @@ const Day = styled.div`
   z-index: 1;
 `;
 
-var CalendarDay = ({day, setCheckIn}) => {
-  if (day) {
-    return(
-      <Day onClick={(event) => setCheckIn(day)}>{day.getDate()}</Day>
-    )
-  } else {
+const Low = styled(Day) `
+  border-radius: 2px;
+  background-color: #f2b203;
+  background-clip: content-box;
+`;
+
+var CalendarDay = ({day, lowDays, setCheckIn}) => {
+  let isLowDay = false;
+  if (lowDays && day) {
+    for (var i = 0; i < lowDays.length; i++) {
+      if (lowDays[i].getDate() === day.getDate() && lowDays[i].getMonth() === day.getMonth() && lowDays[i].getFullYear() === day.getFullYear()) {
+        isLowDay = true;
+        break;
+      }
+    }
+  }
+  if (!day) {
     return (
       <Day />
     )
-  }
+  } else if (isLowDay) {
+    return(
+      <Low onClick={(event) => setCheckIn(day)}>{day.getDate()}</Low>
+    )
+  } else return(
+    <Day onClick={(event) => setCheckIn(day)}>{day.getDate()}</Day>
+  )
 }
 
 export default CalendarDay;

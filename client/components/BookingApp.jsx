@@ -7,7 +7,7 @@ import moment from 'moment';
 import Calendar from './Calendar.jsx';
 import Booking from './Booking.jsx';
 
-
+import CalendarHelper from '../helpers/calendar.js';
 
 
 
@@ -34,13 +34,16 @@ const BookingApp = () => {
   const [year2, setYear2] = useState()
   const [showCalendars, setShowCalendars] = useState(true);
   const [checkIn, setCheckIn] = useState();
+  const [lowDays, setLowDays] = useState([new Date()]);
 
   useEffect(() => {
     setYear(today.getFullYear());
     setMonth1(today.getMonth());
 
     setYear2(today.getFullYear())
-    // axios({
+
+    setLowDays(CalendarHelper.prototype.randomDates(today, new Date(today.getTime() + 10000000000), 50));
+
     //   url: '/api/trips/0',
     //   method: 'get',
     // })
@@ -65,7 +68,6 @@ const BookingApp = () => {
     setMonth2((month1 + 1) % 12)
   }), [month1];
 
-  useEffect
 
   if (!showCalendars) {
     return (
@@ -77,7 +79,7 @@ const BookingApp = () => {
     return (
       <StyledBookingApp>
         <Booking setShowCalendars={setShowCalendars} showCalendars={showCalendars} checkIn={checkIn}/>
-        <Calendar year={year} year2={year2} month1={month1} month2={month2} setMonth1={setMonth1}/>
+        <Calendar year={year} year2={year2} month1={month1} month2={month2} setMonth1={setMonth1} lowDays={lowDays}/>
       </StyledBookingApp>
     );
   }
