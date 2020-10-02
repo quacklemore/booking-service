@@ -11,8 +11,9 @@ const Month = styled.div`
   border-width: 0 0 0 2px;
   border-style: solid;
   padding: 0 16px;
-  margin: 12px 0;
+  margin: 12px 10px 12px -15px;
   display: inline-block;
+  width: 250px;
 `;
 
 const NoBorderMonth = styled(Month)`

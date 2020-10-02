@@ -30,7 +30,7 @@ const BookingApp = () => {
   const [month1, setMonth1] = useState((new Date()).getMonth());
   const [month2, setMonth2] = useState(month1 + 1);
   const [year, setYear] = useState((new Date()).getFullYear())
-  const [showCalendars, setShowCalendars] = useState(false);
+  const [showCalendars, setShowCalendars] = useState(true);
   const [checkIn, setCheckIn] = useState();
 
   useEffect(() => {

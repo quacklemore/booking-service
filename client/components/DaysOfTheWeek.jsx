@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import styled from 'styled-components';
 
 const StyledDaysOfTheWeek = styled.div`
-
+  display: inline-block;
 `;
 
 
@@ -11,7 +11,7 @@ const Day = styled.div `
   flex: 1 0;
   display: inline-block;
   border: 1px solid rgba(0,0,0,0);
-  margin: -1px 0 0 -1px;
+  margin: -1px 10px 0px 5px;
   height: 36px;
   line-height: 36px;
   font-size: 11px;

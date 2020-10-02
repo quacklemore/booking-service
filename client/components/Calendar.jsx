@@ -22,6 +22,7 @@ const CalendarBox = styled.div `
   transform: translateZ(0);
   background-color: #fff;
   border-radius: 2px;
+  width: 600px;
 `;
 
 const PickerPointer = styled.div `
@@ -39,7 +40,6 @@ const StyledCalendar = styled.div `
   white-space: nowrap;
   text-align: center;
   display: block;
-  width: auto;
 `;
 
 const TopBar = styled.div `
