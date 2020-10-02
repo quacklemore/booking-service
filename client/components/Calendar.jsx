@@ -86,6 +86,8 @@ const Chevron = styled.button `
     background: #fff;
     padding: 0;
     font-family: inherit;
+    z-index: 9999;
+    position: relative;
 `;
 
 const RightChevron = styled(Chevron) `
