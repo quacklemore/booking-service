@@ -14,6 +14,7 @@ const Month = styled.div`
   margin: 12px 10px 12px -15px;
   display: inline-block;
   width: 250px;
+  bottom: 0%;
 `;
 
 const NoBorderMonth = styled(Month)`

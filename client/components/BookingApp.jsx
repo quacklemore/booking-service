@@ -57,7 +57,9 @@ const BookingApp = () => {
       setMonth1(month1 % 12);
       setYear(year + 1);
     }
-    if (((month1 + 1) / 12) >= 1) {
+    if (month1 === 10 && year != year2) {
+      setYear2(year)
+    } else if (((month1 + 1) / 12) >= 1) {
       setYear2 (year + 1);
     }
     setMonth2((month1 + 1) % 12)

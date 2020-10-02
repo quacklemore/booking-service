@@ -39,7 +39,7 @@ const PickerPointer = styled.div `
 const StyledCalendar = styled.div `
   white-space: nowrap;
   text-align: center;
-  display: block;
+
 `;
 
 const TopBar = styled.div `
