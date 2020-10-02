@@ -39,7 +39,7 @@ const PickerPointer = styled.div `
 const StyledCalendar = styled.div `
   white-space: nowrap;
   text-align: center;
-  display: block;
+
 `;
 
 const TopBar = styled.div `
@@ -105,7 +105,7 @@ const BottomBar = styled.div `
   margin: 0 15px;
 `;
 
-const Calendar = ({month1, month2, year}) => {
+const Calendar = ({month1, month2, year, year2, setMonth1}) => {
   return (
     <StyledCalendarComponent>
       <CalendarBox>
@@ -118,11 +118,11 @@ const Calendar = ({month1, month2, year}) => {
             </TopBarInset>
           </TopBar>
           <DayPicker>
-              <LeftChevron>{'<'}</LeftChevron>
-              <RightChevron>{'>'}</RightChevron>
+              <LeftChevron onClick={() => setMonth1(month1 - 1)}>{'<'}</LeftChevron>
+              <RightChevron onClick={() => setMonth1(month1 + 1)}>{'>'}</RightChevron>
               <StyledCalendar>
                 <CalendarMonth month={month1} year={year} month1={true}/>
-                <CalendarMonth month={month2} year={year} month1={false}/>
+                <CalendarMonth month={month2} year={year2} month1={false}/>
               </StyledCalendar>
               <BottomBar />
           </DayPicker>
