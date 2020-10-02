@@ -73,6 +73,18 @@ class CalendarHelper {
 
     return months[month];
   }
+
+  randomDate(start, end) {
+    return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
+  }
+
+  randomDates(start, end, quantity) {
+    let results = [];
+      for (let i = 0; i < quantity; i++) {
+        results.push(this.randomDate(start, end));
+      }
+    return results;
+  }
 }
 
 module.exports = CalendarHelper;

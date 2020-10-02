@@ -9,7 +9,7 @@ const Week = styled.div`
 
 
 
-var CalendarWeek = ({weeks, start, week, setCheckIn, month, year}) => {
+var CalendarWeek = ({weeks, start, week, setCheckIn, month, year, lowDays}) => {
   let days = [];
   let count = 0;
   for ( var i = 0; i < week; i++) {
@@ -26,10 +26,9 @@ var CalendarWeek = ({weeks, start, week, setCheckIn, month, year}) => {
     }
   }
 
-
   return (
     <Week>
-      {days.map((day, index) => <CalendarDay day={day} key={index} setCheckIn={setCheckIn}/>)}
+      {days.map((day, index) => <CalendarDay day={day} lowDays={lowDays} key={index} setCheckIn={setCheckIn}/>)}
     </Week>
   )
 }
