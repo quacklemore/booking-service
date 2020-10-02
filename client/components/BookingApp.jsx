@@ -46,6 +46,7 @@ const BookingApp = () => {
     setYear2(today.getFullYear())
 
     setLowDays(CalendarHelper.prototype.randomDates(today, new Date(today.getTime() + 10000000000), 50));
+
     axios({
       url: '/api/trips/0',
       method: 'get',
@@ -82,7 +83,7 @@ const BookingApp = () => {
     return (
       <StyledBookingApp>
         <Booking setCheckOutPicker={setCheckOutPicker} setCheckInPicker={setCheckInPicker} checkInPicker={checkInPicker} checkOutPicker={checkOutPicker}/>
-        <Calendar year={year} year2={year2} month1={month1} month2={month2} setMonth1={setMonth1} checkInPicker={checkInPicker} checkOutPicker={checkOutPicker}/>
+        <Calendar year={year} year2={year2} month1={month1} month2={month2} setMonth1={setMonth1} checkInPicker={checkInPicker} checkOutPicker={checkOutPicker} lowDays={lowDays}/>
       </StyledBookingApp>
     );
   }
