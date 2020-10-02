@@ -18,7 +18,7 @@ const Day = styled.div`
 `;
 
 const Low = styled(Day) `
-  border-radius: 2px;
+  border-radius: 6px;
   background-color: #f2b203;
   background-clip: content-box;
 `;
