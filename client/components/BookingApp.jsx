@@ -43,13 +43,13 @@ const BookingApp = () => {
     setYear2(today.getFullYear())
 
     setLowDays(CalendarHelper.prototype.randomDates(today, new Date(today.getTime() + 10000000000), 50));
-
-    //   url: '/api/trips/0',
-    //   method: 'get',
-    // })
-    // .then((result) => {
-    //   setTrips(result.data)
-    // })
+    axios({
+      url: '/api/trips/0',
+      method: 'get',
+    })
+    .then((result) => {
+      setTrips(result.data)
+    })
   },[]);
 
   useEffect(() => {
