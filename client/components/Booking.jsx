@@ -4,6 +4,7 @@ import styled from 'styled-components'
 
 import Calendar from '../helpers/calendar.js';
 
+import CalendarTodaySharpIcon from '@material-ui/icons/CalendarTodaySharp';
 
 const DatesButton = styled.button `
   flex: 1 1 0%;
@@ -16,7 +17,7 @@ const DatesButton = styled.button `
   text-decoration: none;
   background: #fff;
   padding: 0;
-  text-align: left;
+  text-align: center;
   font-size: inherit;
   font-family: inherit;
   border: 1px solid #e0e0e0;
@@ -83,16 +84,20 @@ let Booking = ({setShowCalendars, showCalendars, checkIn}) => {
       <div>
         <DatesButton onClick={event => setShowCalendars(!showCalendars)}>
           <CheckInPicker>
-            <CalendarIcon></CalendarIcon>
+            <CalendarIcon>
+              <CalendarTodaySharpIcon/>
+            </CalendarIcon>
             <CheckInOutLabel>Check In</CheckInOutLabel>
             <CheckInOutDate>- / - / -</CheckInOutDate>
           </CheckInPicker>
         </DatesButton>
         <DatesButton onClick={event => setShowCalendars(!showCalendars)}>
         <CheckOutPicker>
-        <CalendarIcon></CalendarIcon>
-          <CheckInOutLabel>Check Out</CheckInOutLabel>
-          <CheckInOutDate>- / - / -</CheckInOutDate>
+        <CalendarIcon>
+          <CalendarTodaySharpIcon/>
+        </CalendarIcon>
+        <CheckInOutLabel>Check Out</CheckInOutLabel>
+        <CheckInOutDate>- / - / -</CheckInOutDate>
         </CheckOutPicker>
         </DatesButton>
       </div>
