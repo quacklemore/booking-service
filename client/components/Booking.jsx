@@ -6,6 +6,8 @@ import Calendar from '../helpers/calendar.js';
 
 import CalendarTodaySharpIcon from '@material-ui/icons/CalendarTodaySharp';
 
+import BookingDate from './BookingDate.jsx';
+
 const DatesButton = styled.button `
   flex: 1 1 0%;
   display: inline-block;
@@ -82,21 +84,7 @@ const CalendarIcon = styled.span `
   vertical-align: middle;
 `;
 
-const CheckInOutLabel = styled.span `
-  display: block;
-    margin-bottom: 2px;
-    font-size: .75em;
-    line-height: normal;
-    color: #474747;
 
-`;
-
-const CheckInOutDate = styled.span `
-  display: block;
-  font-size: .8125em;
-  font-weight: 700;
-  line-height: 20px;
-`;
 
 let Booking = ({setCheckInPicker, setCheckOutPicker, checkInPicker, checkOutPicker}) => {
 
@@ -108,8 +96,7 @@ let Booking = ({setCheckInPicker, setCheckOutPicker, checkInPicker, checkOutPick
             <CalendarIcon>
               <CalendarTodaySharpIcon/>
             </CalendarIcon>
-            <CheckInOutLabel>Check In</CheckInOutLabel>
-            <CheckInOutDate>- / - / -</CheckInOutDate>
+            <BookingDate isCheckInDate={true} />
           </CheckInPicker>
         </DatesButton>
         <DatesButton onClick={event => setCheckOutPicker(!checkOutPicker)}>
@@ -117,8 +104,7 @@ let Booking = ({setCheckInPicker, setCheckOutPicker, checkInPicker, checkOutPick
             <CalendarIcon>
               <CalendarTodaySharpIcon/>
             </CalendarIcon>
-            <CheckInOutLabel>Check Out</CheckInOutLabel>
-            <CheckInOutDate>- / - / -</CheckInOutDate>
+            <BookingDate isCheckInDate={false} />
           </CheckOutPicker>
         </DatesButton>
       </div>
@@ -131,8 +117,7 @@ let Booking = ({setCheckInPicker, setCheckOutPicker, checkInPicker, checkOutPick
             <CalendarIcon>
               <CalendarTodaySharpIcon/>
             </CalendarIcon>
-            <CheckInOutLabel>Check In</CheckInOutLabel>
-            <CheckInOutDate>- / - / -</CheckInOutDate>
+            <BookingDate isCheckInDate={true} />
           </CheckInPickerSelected>
         </DatesButton>
         <DatesButton onClick={event => setCheckOutPicker(!checkOutPicker)}>
@@ -140,8 +125,7 @@ let Booking = ({setCheckInPicker, setCheckOutPicker, checkInPicker, checkOutPick
             <CalendarIcon>
               <CalendarTodaySharpIcon/>
             </CalendarIcon>
-            <CheckInOutLabel>Check Out</CheckInOutLabel>
-            <CheckInOutDate>- / - / -</CheckInOutDate>
+            <BookingDate isCheckInDate={false} />
           </CheckOutPickerNotSelected>
         </DatesButton>
       </div>
@@ -154,8 +138,7 @@ let Booking = ({setCheckInPicker, setCheckOutPicker, checkInPicker, checkOutPick
             <CalendarIcon>
               <CalendarTodaySharpIcon/>
             </CalendarIcon>
-            <CheckInOutLabel>Check In</CheckInOutLabel>
-            <CheckInOutDate>- / - / -</CheckInOutDate>
+            <BookingDate isCheckInDate={true} />
           </CheckInPickerNotSelected>
         </DatesButton>
         <DatesButton onClick={event => setCheckOutPicker(!checkOutPicker)}>
@@ -163,8 +146,7 @@ let Booking = ({setCheckInPicker, setCheckOutPicker, checkInPicker, checkOutPick
             <CalendarIcon>
               <CalendarTodaySharpIcon/>
             </CalendarIcon>
-            <CheckInOutLabel>Check Out</CheckInOutLabel>
-            <CheckInOutDate>- / - / -</CheckInOutDate>
+            <BookingDate isCheckInDate={false} />
           </CheckOutPickerSelected>
         </DatesButton>
       </div>
