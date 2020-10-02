@@ -173,24 +173,3 @@ let Booking = ({setCheckInPicker, setCheckOutPicker, checkInPicker, checkOutPick
 }
 
 export default Booking;
-
-// else {
-//   let day = Calendar.prototype.getDay(checkIn.getDay())
-//   let checkInDisplay = `${day}, ${checkIn.getMonth()}/${checkIn.getDate()}/${checkIn.getFullYear()}`;
-//   return (
-//     <div>
-//       <DatesButton onClick={event => setShowCalendars(!showCalendars)}>
-//         <DatesSpan>
-//           <span>Check In</span>
-//           <span>{checkInDisplay}</span>
-//         </DatesSpan>
-//       </DatesButton>
-//       <DatesButton onClick={event => setShowCalendars(!showCalendars)}>
-//         <DatesSpan>
-//           <span>Check Out</span>
-//           <span>- / - / -</span>
-//         </DatesSpan>
-//       </DatesButton>
-//     </div>
-//   )
-// }
