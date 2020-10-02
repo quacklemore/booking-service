@@ -27,23 +27,43 @@ const StyledBookingApp = styled.div`
 
 const BookingApp = () => {
   const [trips, setTrips] = useState([]);
-  const [month1, setMonth1] = useState((new Date()).getMonth());
-  const [month2, setMonth2] = useState(month1 + 1);
-  const [year, setYear] = useState((new Date()).getFullYear())
+  const [today, setToday] = useState(new Date())
+  const [month1, setMonth1] = useState();
+  const [month2, setMonth2] = useState();
+  const [year, setYear] = useState()
+  const [year2, setYear2] = useState()
   const [showCalendars, setShowCalendars] = useState(true);
   const [checkIn, setCheckIn] = useState();
 
   useEffect(() => {
-    axios({
-      url: '/api/trips/0',
-      method: 'get',
-    })
-    .then((result) => {
-      setTrips(result.data)
-    })
+    setYear(today.getFullYear());
+    setMonth1(today.getMonth());
+
+    setYear2(today.getFullYear())
+    // axios({
+    //   url: '/api/trips/0',
+    //   method: 'get',
+    // })
+    // .then((result) => {
+    //   setTrips(result.data)
+    // })
   },[]);
 
+  useEffect(() => {
+    if (month1 < 0) {
+      setMonth1(11);
+      setYear(year - 1);
+    } else if ((month1 / 12) >= 1) {
+      setMonth1(month1 % 12);
+      setYear(year + 1);
+    }
+    if (((month1 + 1) / 12) >= 1) {
+      setYear2 (year + 1);
+    }
+    setMonth2((month1 + 1) % 12)
+  }), [month1];
 
+  useEffect
 
   if (!showCalendars) {
     return (
@@ -55,7 +75,7 @@ const BookingApp = () => {
     return (
       <StyledBookingApp>
         <Booking setShowCalendars={setShowCalendars} showCalendars={showCalendars} checkIn={checkIn}/>
-        <Calendar year={year} month1={month1} month2={month2}/>
+        <Calendar year={year} year2={year2} month1={month1} month2={month2} setMonth1={setMonth1}/>
       </StyledBookingApp>
     );
   }

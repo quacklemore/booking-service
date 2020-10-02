@@ -7,19 +7,7 @@ const Week = styled.div`
   display: flex;
 `;
 
-const Day = styled.div `
-  height: 36px;
-  line-height: 36px;
-  font-size: 11px;
-  flex: 1 0;
-  display: inline-block;
-  border: 1px solid rgba(0,0,0,0);
-  margin: -1px 0 0 -1px;
-`;
 
-const Weekend = styled(Day) `
-  font-weight: 700;
-`;
 
 var CalendarWeek = ({weeks, start, week, setCheckIn, month, year}) => {
   let days = [];
