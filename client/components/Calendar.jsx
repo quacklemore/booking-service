@@ -111,34 +111,6 @@ const BottomBar = styled.div `
   margin: 0 15px;
 `;
 
-<<<<<<< HEAD
-const Calendar = ({month1, month2, year, year2, setMonth1, lowDays}) => {
-  return (
-    <StyledCalendarComponent>
-      <CalendarBox>
-        <div>
-          <TopBar>
-            Select a date to continue
-            <TopBarInset>
-              <LowPrice></LowPrice>
-              {' Lowest Priced Dates'}
-            </TopBarInset>
-          </TopBar>
-          <DayPicker>
-              <LeftChevron onClick={() => setMonth1(month1 - 1)}>{'<'}</LeftChevron>
-              <RightChevron onClick={() => setMonth1(month1 + 1)}>{'>'}</RightChevron>
-              <StyledCalendar>
-                <CalendarMonth month={month1} year={year} month1={true} lowDays={lowDays}/>
-                <CalendarMonth month={month2} year={year2} month1={false} lowDays={lowDays}/>
-              </StyledCalendar>
-              <BottomBar />
-          </DayPicker>
-        </div>
-        <PickerPointer></PickerPointer>
-      </CalendarBox>
-    </StyledCalendarComponent>
-  );
-=======
 const Calendar = ({month1, month2, year, year2, setMonth1, checkInPicker, checkOutPicker}) => {
   if (checkInPicker) {
     return (
@@ -193,7 +165,6 @@ const Calendar = ({month1, month2, year, year2, setMonth1, checkInPicker, checkO
       </CheckOutCalendar>
     );
   }
->>>>>>> pop up calendar at appropriate location after clicking either check in or check out
 }
 
 export default Calendar;

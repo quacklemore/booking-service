@@ -81,13 +81,8 @@ const BookingApp = () => {
   } else {
     return (
       <StyledBookingApp>
-<<<<<<< HEAD
-        <Booking setShowCalendars={setShowCalendars} showCalendars={showCalendars} checkIn={checkIn}/>
-        <Calendar year={year} year2={year2} month1={month1} month2={month2} setMonth1={setMonth1} lowDays={lowDays}/>
-=======
         <Booking setCheckOutPicker={setCheckOutPicker} setCheckInPicker={setCheckInPicker} checkInPicker={checkInPicker} checkOutPicker={checkOutPicker}/>
         <Calendar year={year} year2={year2} month1={month1} month2={month2} setMonth1={setMonth1} checkInPicker={checkInPicker} checkOutPicker={checkOutPicker}/>
->>>>>>> pop up calendar at appropriate location after clicking either check in or check out
       </StyledBookingApp>
     );
   }
