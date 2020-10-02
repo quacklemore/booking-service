@@ -1,4 +1,4 @@
-class Calendar {
+class CalendarHelper {
   constructor() {
 
 
@@ -75,4 +75,4 @@ class Calendar {
   }
 }
 
-module.exports = Calendar;
+module.exports = CalendarHelper;

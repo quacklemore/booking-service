@@ -4,25 +4,24 @@ import styled from 'styled-components'
 import axios from 'axios';
 import moment from 'moment';
 
-import CalendarMonth from './CalendarMonth.jsx';
+import Calendar from './Calendar.jsx';
 import Booking from './Booking.jsx';
 
-import Calendar from '../helpers/calendar.js';
 
 
-const Calendars = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  position: relative;
-  box-shadow: 0 2px 4px 0 rgba(0,0,0,.25);
-`;
+
+
+// const Calendars = styled.div`
+//   display: grid;
+//   grid-template-columns: 1fr 1fr;
+//   position: relative;
+//   box-shadow: 0 2px 4px 0 rgba(0,0,0,.25);
+// `;
 
 
 const StyledBookingApp = styled.div`
-  position: relative;
-  height: 50%;
-  width: 40%;
-  font-family: 'Trip Sans', Arial, sans-serif !important;
+  margin: 8px 0;
+  height: 44px;
 `;
 
 
@@ -56,14 +55,13 @@ const BookingApp = () => {
     return (
       <StyledBookingApp>
         <Booking setShowCalendars={setShowCalendars} showCalendars={showCalendars} checkIn={checkIn}/>
-        <Calendars>
-          <CalendarMonth month={month1} year={year} setCheckIn={setCheckIn} month1={true}/>
-          <CalendarMonth month={month2} year={year} setCheckIn={setCheckIn} month1={false}/>
-        </Calendars>
+        <Calendar year={year} month1={month1} month2={month2}/>
       </StyledBookingApp>
     );
   }
-
 }
 
+
+
 export default BookingApp;
+
