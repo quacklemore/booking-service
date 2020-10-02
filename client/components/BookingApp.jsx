@@ -39,9 +39,6 @@ const BookingApp = () => {
   const [checkInPicker, setCheckInPicker] = useState(false);
   const [checkOutPicker, setCheckOutPicker] = useState(false);
 
-  const [checkInPicker, setCheckInPicker] = useState(false);
-  const [checkOutPicker, setCheckOutPicker] = useState(false);
-
   useEffect(() => {
     setYear(today.getFullYear());
     setMonth1(today.getMonth());
