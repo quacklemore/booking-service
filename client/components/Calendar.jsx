@@ -154,8 +154,8 @@ const Calendar = ({month1, month2, year, year2, setMonth1, checkInPicker, checkO
                 <LeftChevron onClick={() => setMonth1(month1 - 1)}>{'<'}</LeftChevron>
                 <RightChevron onClick={() => setMonth1(month1 + 1)}>{'>'}</RightChevron>
                 <StyledCalendar>
-                  <CalendarMonth month={month1} year={year} month1={true}/>
-                  <CalendarMonth month={month2} year={year2} month1={false}/>
+                  <CalendarMonth month={month1} year={year} month1={true} lowDays={lowDays}/>
+                  <CalendarMonth month={month2} year={year2} month1={false} lowDays={lowDays}/>
                 </StyledCalendar>
                 <BottomBar />
             </DayPicker>

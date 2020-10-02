@@ -72,6 +72,9 @@ const BookingApp = () => {
     setMonth2((month1 + 1) % 12)
   }), [month1];
 
+  useEffect(() => {
+    setCheckOutPicker(false);
+  }, [checkInPicker]);
 
   if (!checkInPicker && !checkOutPicker) {
     return (
