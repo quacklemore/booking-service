@@ -2,16 +2,19 @@ import React, {useState, useEffect} from 'react';
 import ReactDOM from 'react-dom';
 import styled from 'styled-components';
 
-const Day = styled.td`
-  border-width: 2px;
-  border-style: solid;
-  border-color: white;
+const Day = styled.div`
+  font-weight: 700;
+  flex: 1 0;
+  display: inline-block;
+  border: 2px solid rgba(0,0,0,0);
   margin: -2px 0 0 -2px;
-  line-height: 36px;
   height: 36px;
+  line-height: 36px;
+  font-size: 14px;
+  cursor: pointer;
   vertical-align: top;
   position: relative;
-  text-align: center;
+  z-index: 1;
 `;
 
 var CalendarDay = ({day, setCheckIn}) => {

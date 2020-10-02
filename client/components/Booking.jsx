@@ -37,6 +37,7 @@ const DatePicker = styled.div `
   position: relative;
   margin: 0;
   padding: 0;
+  width: 166px;
 `;
 const CheckInPicker = styled(DatePicker) `
     margin-left: 8px;
@@ -74,10 +75,6 @@ const CheckInOutDate = styled.span `
   line-height: 20px;
 `;
 
-const Months = styled.div `
-  white-space: nowrap;
-  text-align: center;
-`;
 let Booking = ({setShowCalendars, showCalendars, checkIn}) => {
 
 

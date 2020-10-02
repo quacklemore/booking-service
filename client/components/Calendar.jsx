@@ -6,8 +6,7 @@ import CalendarMonth from './CalendarMonth.jsx';
 
 const StyledCalendarComponent = styled.div `
   position: absolute;
-  top: 464px;
-  left: 544px;
+  left: 300px;
   bottom: auto;
   right: auto;
   z-index: 9991;
@@ -21,27 +20,26 @@ const CalendarBox = styled.div `
   position: relative;
   filter: drop-shadow(0 2px 4px rgba(0,0,0,.25));
   transform: translateZ(0);
-  background-color: var(#fff);
+  background-color: #fff;
   border-radius: 2px;
 `;
 
 const PickerPointer = styled.div `
-  top: 72px;
+  top: 30%;
   right: 100%;
-  width: var(16.97056275px);
-  height: calc(2*var(12px) + var(16.97056275px));
+  width: 20px;
+  height: 20px;
   position: absolute;
   overflow: hidden;
-
+  background-color: #fff;
   transform: translateX(50%) translateY(-50%) rotate(45deg);
-  right: 0;
-  top: 50%;
 `;
 
 const StyledCalendar = styled.div `
   white-space: nowrap;
   text-align: center;
   display: block;
+  width: auto;
 `;
 
 const TopBar = styled.div `
@@ -98,6 +96,13 @@ const LeftChevron = styled(Chevron) `
   float: left;
 `;
 
+const BottomBar = styled.div `
+  padding: 16px 0;
+  border: solid #e0e0e0;
+  border-width: 1px 0 0;
+  margin: 0 15px;
+`;
+
 const Calendar = ({month1, month2, year}) => {
   return (
     <StyledCalendarComponent>
@@ -111,14 +116,13 @@ const Calendar = ({month1, month2, year}) => {
             </TopBarInset>
           </TopBar>
           <DayPicker>
-            <div>
-             <LeftChevron>{'<'}</LeftChevron>
-             <RightChevron>{'>'}</RightChevron>
-             <StyledCalendar>
-               <CalendarMonth month={month1} year={year}/>
-               <CalendarMonth month={month2} year={year}/>
-             </StyledCalendar>
-            </div>
+              <LeftChevron>{'<'}</LeftChevron>
+              <RightChevron>{'>'}</RightChevron>
+              <StyledCalendar>
+                <CalendarMonth month={month1} year={year} month1={true}/>
+                <CalendarMonth month={month2} year={year} month1={false}/>
+              </StyledCalendar>
+              <BottomBar />
           </DayPicker>
         </div>
         <PickerPointer></PickerPointer>

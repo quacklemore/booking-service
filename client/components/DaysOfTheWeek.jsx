@@ -6,14 +6,19 @@ const StyledDaysOfTheWeek = styled.div`
 
 `;
 
+
 const Day = styled.div `
-  height: 36px;
-  line-height: 36px;
-  font-size: 11px;
   flex: 1 0;
   display: inline-block;
   border: 1px solid rgba(0,0,0,0);
   margin: -1px 0 0 -1px;
+  height: 36px;
+  line-height: 36px;
+  font-size: 11px;
+  cursor: pointer;
+  vertical-align: top;
+  position: relative;
+  z-index: 1;
 `;
 
 const Weekend = styled(Day) `
