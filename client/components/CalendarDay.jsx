@@ -17,6 +17,10 @@ const Day = styled.div`
   z-index: 1;
 `;
 
+const Low = styled(Day) `
+
+`;
+
 var CalendarDay = ({day, setCheckIn}) => {
   if (day) {
     return(

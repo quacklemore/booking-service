@@ -40,13 +40,13 @@ const BookingApp = () => {
     setMonth1(today.getMonth());
 
     setYear2(today.getFullYear())
-    // axios({
-    //   url: '/api/trips/0',
-    //   method: 'get',
-    // })
-    // .then((result) => {
-    //   setTrips(result.data)
-    // })
+    axios({
+      url: '/api/trips/0',
+      method: 'get',
+    })
+    .then((result) => {
+      setTrips(result.data)
+    })
   },[]);
 
   useEffect(() => {
