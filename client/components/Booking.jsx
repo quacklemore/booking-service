@@ -75,20 +75,19 @@ const CheckInOutDate = styled.span `
   line-height: 20px;
 `;
 
-let Booking = ({setShowCalendars, showCalendars, checkIn}) => {
+let Booking = ({setCheckInPicker, setCheckOutPicker, checkInPicker, checkOutPicker}) => {
 
 
-  if (!checkIn) {
     return (
       <div>
-        <DatesButton onClick={event => setShowCalendars(!showCalendars)}>
+        <DatesButton onClick={event => setCheckInPicker(!checkInPicker)}>
           <CheckInPicker>
             <CalendarIcon></CalendarIcon>
             <CheckInOutLabel>Check In</CheckInOutLabel>
             <CheckInOutDate>- / - / -</CheckInOutDate>
           </CheckInPicker>
         </DatesButton>
-        <DatesButton onClick={event => setShowCalendars(!showCalendars)}>
+        <DatesButton onClick={event => setCheckOutPicker(!checkOutPicker)}>
         <CheckOutPicker>
         <CalendarIcon></CalendarIcon>
           <CheckInOutLabel>Check Out</CheckInOutLabel>
@@ -97,7 +96,6 @@ let Booking = ({setShowCalendars, showCalendars, checkIn}) => {
         </DatesButton>
       </div>
     );
-  }
 }
 
 export default Booking;
