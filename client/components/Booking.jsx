@@ -2,9 +2,10 @@ import React, {useState, useEffect} from 'react';
 import ReactDOM from 'react-dom';
 import styled from 'styled-components'
 
-import Calendar from '../helpers/calendar.js';
 
 import CalendarTodaySharpIcon from '@material-ui/icons/CalendarTodaySharp';
+
+import BookingDate from './BookingDate.jsx';
 
 const DatesButton = styled.button `
   flex: 1 1 0%;
@@ -82,24 +83,9 @@ const CalendarIcon = styled.span `
   vertical-align: middle;
 `;
 
-const CheckInOutLabel = styled.span `
-  display: block;
-    margin-bottom: 2px;
-    font-size: .75em;
-    line-height: normal;
-    color: #474747;
 
-`;
 
-const CheckInOutDate = styled.span `
-  display: block;
-  font-size: .8125em;
-  font-weight: 700;
-  line-height: 20px;
-`;
-
-let Booking = ({setCheckInPicker, setCheckOutPicker, checkInPicker, checkOutPicker}) => {
-
+let Booking = ({setCheckInPicker, setCheckOutPicker, checkInPicker, checkOutPicker, checkInDate, checkOutDate}) => {
   if (!checkOutPicker && !checkInPicker) {
     return (
       <div>
@@ -108,8 +94,7 @@ let Booking = ({setCheckInPicker, setCheckOutPicker, checkInPicker, checkOutPick
             <CalendarIcon>
               <CalendarTodaySharpIcon/>
             </CalendarIcon>
-            <CheckInOutLabel>Check In</CheckInOutLabel>
-            <CheckInOutDate>- / - / -</CheckInOutDate>
+            <BookingDate isCheckInDate={true} date={checkInDate}/>
           </CheckInPicker>
         </DatesButton>
         <DatesButton onClick={event => setCheckOutPicker(!checkOutPicker)}>
@@ -117,8 +102,7 @@ let Booking = ({setCheckInPicker, setCheckOutPicker, checkInPicker, checkOutPick
             <CalendarIcon>
               <CalendarTodaySharpIcon/>
             </CalendarIcon>
-            <CheckInOutLabel>Check Out</CheckInOutLabel>
-            <CheckInOutDate>- / - / -</CheckInOutDate>
+            <BookingDate isCheckInDate={false} date={checkOutDate}/>
           </CheckOutPicker>
         </DatesButton>
       </div>
@@ -131,8 +115,7 @@ let Booking = ({setCheckInPicker, setCheckOutPicker, checkInPicker, checkOutPick
             <CalendarIcon>
               <CalendarTodaySharpIcon/>
             </CalendarIcon>
-            <CheckInOutLabel>Check In</CheckInOutLabel>
-            <CheckInOutDate>- / - / -</CheckInOutDate>
+            <BookingDate isCheckInDate={true} date={checkInDate}/>
           </CheckInPickerSelected>
         </DatesButton>
         <DatesButton onClick={event => setCheckOutPicker(!checkOutPicker)}>
@@ -140,8 +123,7 @@ let Booking = ({setCheckInPicker, setCheckOutPicker, checkInPicker, checkOutPick
             <CalendarIcon>
               <CalendarTodaySharpIcon/>
             </CalendarIcon>
-            <CheckInOutLabel>Check Out</CheckInOutLabel>
-            <CheckInOutDate>- / - / -</CheckInOutDate>
+            <BookingDate isCheckInDate={false} date={checkOutDate}/>
           </CheckOutPickerNotSelected>
         </DatesButton>
       </div>
@@ -154,8 +136,7 @@ let Booking = ({setCheckInPicker, setCheckOutPicker, checkInPicker, checkOutPick
             <CalendarIcon>
               <CalendarTodaySharpIcon/>
             </CalendarIcon>
-            <CheckInOutLabel>Check In</CheckInOutLabel>
-            <CheckInOutDate>- / - / -</CheckInOutDate>
+            <BookingDate isCheckInDate={true} date={checkInDate}/>
           </CheckInPickerNotSelected>
         </DatesButton>
         <DatesButton onClick={event => setCheckOutPicker(!checkOutPicker)}>
@@ -163,8 +144,7 @@ let Booking = ({setCheckInPicker, setCheckOutPicker, checkInPicker, checkOutPick
             <CalendarIcon>
               <CalendarTodaySharpIcon/>
             </CalendarIcon>
-            <CheckInOutLabel>Check Out</CheckInOutLabel>
-            <CheckInOutDate>- / - / -</CheckInOutDate>
+            <BookingDate isCheckInDate={false} date={checkOutDate}/>
           </CheckOutPickerSelected>
         </DatesButton>
       </div>
@@ -173,24 +153,3 @@ let Booking = ({setCheckInPicker, setCheckOutPicker, checkInPicker, checkOutPick
 }
 
 export default Booking;
-
-// else {
-//   let day = Calendar.prototype.getDay(checkIn.getDay())
-//   let checkInDisplay = `${day}, ${checkIn.getMonth()}/${checkIn.getDate()}/${checkIn.getFullYear()}`;
-//   return (
-//     <div>
-//       <DatesButton onClick={event => setShowCalendars(!showCalendars)}>
-//         <DatesSpan>
-//           <span>Check In</span>
-//           <span>{checkInDisplay}</span>
-//         </DatesSpan>
-//       </DatesButton>
-//       <DatesButton onClick={event => setShowCalendars(!showCalendars)}>
-//         <DatesSpan>
-//           <span>Check Out</span>
-//           <span>- / - / -</span>
-//         </DatesSpan>
-//       </DatesButton>
-//     </div>
-//   )
-// }
