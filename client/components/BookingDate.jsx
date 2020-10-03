@@ -21,7 +21,6 @@ const CheckInOutDate = styled.span `
 `;
 
 const BookingDate = ({isCheckInDate, date}) => {
-   console.log(date)
   if (isCheckInDate) {
     if (!date) {
       return (

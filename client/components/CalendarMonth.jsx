@@ -39,7 +39,7 @@ if (!month1) {
         {`${cal.monthName(month)} ${year}`}
         </MonthHeading>
         <DaysOfTheWeek />
-        { weeks.map((week, index) => <CalendarWeek weeks={weeks} start={(index === 0) ? first : 0} week={index} key={index}  month={month} year={year} lowDays={lowDays}/> )}
+        { weeks.map((week, index) => <CalendarWeek weeks={weeks} start={(index === 0) ? first : 0} week={index} key={index}  month={month} year={year} lowDays={lowDays} setCheckIn={setCheckIn}/> )}
       </Month>
     );
  } else {
@@ -49,7 +49,7 @@ if (!month1) {
       {`${cal.monthName(month)} ${year}`}
       </MonthHeading>
       <DaysOfTheWeek />
-      { weeks.map((week, index) => <CalendarWeek weeks={weeks} start={(index === 0) ? first : 0} week={index} key={index}  month={month} year={year} lowDays={lowDays}/> )}
+      { weeks.map((week, index) => <CalendarWeek weeks={weeks} start={(index === 0) ? first : 0} week={index} key={index}  month={month} year={year} lowDays={lowDays} setCheckIn={setCheckIn}/> )}
     </NoBorderMonth>
   );
  }
