@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import ReactDOM from 'react-dom';
 import styled from 'styled-components'
 
-import Calendar from '../helpers/calendar.js';
+import CalendarHelper from '../helpers/calendar.js';
 
 const CheckInOutLabel = styled.span `
   display: block;
@@ -21,21 +21,47 @@ const CheckInOutDate = styled.span `
 `;
 
 const BookingDate = ({isCheckInDate}) => {
-
+  let date = new Date();
   if (isCheckInDate) {
-    return (
-      <span>
-        <CheckInOutLabel>Check In</CheckInOutLabel>
-        <CheckInOutDate>- / - / -</CheckInOutDate>
-      </span>
-    );
+    if (!date) {
+      return (
+        <span>
+          <CheckInOutLabel>Check In</CheckInOutLabel>
+          <CheckInOutDate>- / - / -</CheckInOutDate>
+        </span>
+      );
+    } else {
+      let checkInDay = CalendarHelper.prototype.getDay(date.getDay());
+      let checkInDate = date.getDate();
+      let checkInMonth = date.getMonth() + 1;
+      let checkInYear = date.getFullYear().toString().slice(-2);
+      return (
+        <span>
+          <CheckInOutLabel>Check In</CheckInOutLabel>
+          <CheckInOutDate>{`${checkInDay}, ${checkInMonth}/${checkInDate}/${checkInYear}`}</CheckInOutDate>
+        </span>
+      );
+    }
   } else {
-    return (
-      <span>
-        <CheckInOutLabel>Check Out</CheckInOutLabel>
-        <CheckInOutDate>- / - / -</CheckInOutDate>
-      </span>
-    );
+    if (!date) {
+      return (
+        <span>
+          <CheckInOutLabel>Check Out</CheckInOutLabel>
+          <CheckInOutDate>- / - / -</CheckInOutDate>
+        </span>
+      );
+    } else {
+      let checkOutDay = CalendarHelper.prototype.getDay(date.getDay());
+      let checkOutDate = date.getDate();
+      let checkOutMonth = date.getMonth() + 1;
+      let checkOutYear = date.getFullYear().toString().slice(-2);
+      return (
+        <span>
+          <CheckInOutLabel>Check Out</CheckInOutLabel>
+          <CheckInOutDate>{`${checkOutDay}, ${checkOutMonth}/${checkOutDate}/${checkOutYear}`}</CheckInOutDate>
+        </span>
+      );
+    }
   }
 
 }

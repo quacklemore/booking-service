@@ -2,7 +2,6 @@ import React, {useState, useEffect} from 'react';
 import ReactDOM from 'react-dom';
 import styled from 'styled-components'
 
-import Calendar from '../helpers/calendar.js';
 
 import CalendarTodaySharpIcon from '@material-ui/icons/CalendarTodaySharp';
 
