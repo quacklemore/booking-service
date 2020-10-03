@@ -86,7 +86,6 @@ const CalendarIcon = styled.span `
 
 
 let Booking = ({setCheckInPicker, setCheckOutPicker, checkInPicker, checkOutPicker, checkInDate, checkOutDate}) => {
-
   if (!checkOutPicker && !checkInPicker) {
     return (
       <div>
