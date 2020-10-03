@@ -63,7 +63,6 @@ const BookingDate = ({isCheckInDate}) => {
       );
     }
   }
-
 }
 
 export default BookingDate;
