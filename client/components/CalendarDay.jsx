@@ -23,7 +23,7 @@ const Low = styled(Day) `
   background-clip: content-box;
 `;
 
-var CalendarDay = ({day, lowDays, setCheckInDate}) => {
+var CalendarDay = ({day, lowDays, setCheckInDate, checkInPicker, checkOutPicker, setCheckOutDate}) => {
   let isLowDay = false;
   if (lowDays && day) {
     for (var i = 0; i < lowDays.length; i++) {
@@ -33,17 +33,35 @@ var CalendarDay = ({day, lowDays, setCheckInDate}) => {
       }
     }
   }
-  if (!day) {
-    return (
-      <Day />
-    )
-  } else if (isLowDay) {
-    return(
-      <Low onClick={(event) => setCheckInDate(day)}>{day.getDate()}</Low>
-    )
-  } else return(
-    <Day onClick={(event) => setCheckInDate(day)}>{day.getDate()}</Day>
-  )
+  if (checkInPicker) {
+    if (!day) {
+      return (
+        <Day />
+      )
+    } else if (isLowDay) {
+      return(
+        <Low onClick={(event) => setCheckInDate(day)}>{day.getDate()}</Low>
+      )
+    } else {
+      return(
+        <Day onClick={(event) => setCheckInDate(day)}>{day.getDate()}</Day>
+      )
+    }
+  } else {
+    if (!day) {
+      return (
+        <Day />
+      )
+    } else if (isLowDay) {
+      return(
+        <Low onClick={(event) => setCheckOutDate(day)}>{day.getDate()}</Low>
+      )
+    } else {
+      return(
+        <Day onClick={(event) => setCheckOutDate(day)}>{day.getDate()}</Day>
+      )
+    }
+  }
 }
 
 export default CalendarDay;
