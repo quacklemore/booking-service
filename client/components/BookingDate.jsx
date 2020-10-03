@@ -20,8 +20,8 @@ const CheckInOutDate = styled.span `
   line-height: 20px;
 `;
 
-const BookingDate = ({isCheckInDate}) => {
-  let date = new Date();
+const BookingDate = ({isCheckInDate, date}) => {
+
   if (isCheckInDate) {
     if (!date) {
       return (

@@ -85,7 +85,7 @@ const CalendarIcon = styled.span `
 
 
 
-let Booking = ({setCheckInPicker, setCheckOutPicker, checkInPicker, checkOutPicker}) => {
+let Booking = ({setCheckInPicker, setCheckOutPicker, checkInPicker, checkOutPicker, checkInDate, checkOutDate}) => {
 
   if (!checkOutPicker && !checkInPicker) {
     return (
@@ -95,7 +95,7 @@ let Booking = ({setCheckInPicker, setCheckOutPicker, checkInPicker, checkOutPick
             <CalendarIcon>
               <CalendarTodaySharpIcon/>
             </CalendarIcon>
-            <BookingDate isCheckInDate={true} />
+            <BookingDate isCheckInDate={true} date={checkInDate}/>
           </CheckInPicker>
         </DatesButton>
         <DatesButton onClick={event => setCheckOutPicker(!checkOutPicker)}>
@@ -103,7 +103,7 @@ let Booking = ({setCheckInPicker, setCheckOutPicker, checkInPicker, checkOutPick
             <CalendarIcon>
               <CalendarTodaySharpIcon/>
             </CalendarIcon>
-            <BookingDate isCheckInDate={false} />
+            <BookingDate isCheckInDate={false} date={checkOutDate}/>
           </CheckOutPicker>
         </DatesButton>
       </div>
@@ -116,7 +116,7 @@ let Booking = ({setCheckInPicker, setCheckOutPicker, checkInPicker, checkOutPick
             <CalendarIcon>
               <CalendarTodaySharpIcon/>
             </CalendarIcon>
-            <BookingDate isCheckInDate={true} />
+            <BookingDate isCheckInDate={true} date={checkInDate}/>
           </CheckInPickerSelected>
         </DatesButton>
         <DatesButton onClick={event => setCheckOutPicker(!checkOutPicker)}>
@@ -124,7 +124,7 @@ let Booking = ({setCheckInPicker, setCheckOutPicker, checkInPicker, checkOutPick
             <CalendarIcon>
               <CalendarTodaySharpIcon/>
             </CalendarIcon>
-            <BookingDate isCheckInDate={false} />
+            <BookingDate isCheckInDate={false} date={checkOutDate}/>
           </CheckOutPickerNotSelected>
         </DatesButton>
       </div>
@@ -137,7 +137,7 @@ let Booking = ({setCheckInPicker, setCheckOutPicker, checkInPicker, checkOutPick
             <CalendarIcon>
               <CalendarTodaySharpIcon/>
             </CalendarIcon>
-            <BookingDate isCheckInDate={true} />
+            <BookingDate isCheckInDate={true} date={checkInDate}/>
           </CheckInPickerNotSelected>
         </DatesButton>
         <DatesButton onClick={event => setCheckOutPicker(!checkOutPicker)}>
@@ -145,7 +145,7 @@ let Booking = ({setCheckInPicker, setCheckOutPicker, checkInPicker, checkOutPick
             <CalendarIcon>
               <CalendarTodaySharpIcon/>
             </CalendarIcon>
-            <BookingDate isCheckInDate={false} />
+            <BookingDate isCheckInDate={false} date={checkOutDate}/>
           </CheckOutPickerSelected>
         </DatesButton>
       </div>
