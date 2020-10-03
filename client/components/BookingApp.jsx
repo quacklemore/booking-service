@@ -33,7 +33,7 @@ const BookingApp = () => {
   const [month2, setMonth2] = useState();
   const [year, setYear] = useState()
   const [year2, setYear2] = useState()
-  const [showCalendars, setShowCalendars] = useState(true);
+
 
   const [lowDays, setLowDays] = useState([new Date()]);
 
@@ -74,6 +74,10 @@ const BookingApp = () => {
     setMonth2((month1 + 1) % 12)
   }), [month1];
 
+  useEffect(() => {
+    setCheckInPicker(false);
+  }, [checkInDate])
+
   if (!checkInPicker && !checkOutPicker) {
     return (
       <StyledBookingApp>
@@ -84,7 +88,7 @@ const BookingApp = () => {
     return (
       <StyledBookingApp>
         <Booking setCheckOutPicker={setCheckOutPicker} setCheckInPicker={setCheckInPicker} checkInPicker={checkInPicker} checkOutPicker={checkOutPicker} checkInDate={checkInDate} checkOutDate={checkOutDate}/>
-        <Calendar year={year} year2={year2} month1={month1} month2={month2} setMonth1={setMonth1} checkInPicker={checkInPicker} checkOutPicker={checkOutPicker} lowDays={lowDays} setCheckIn={setCheckInDate}/>
+        <Calendar year={year} year2={year2} month1={month1} month2={month2} setMonth1={setMonth1} checkInPicker={checkInPicker} checkOutPicker={checkOutPicker} lowDays={lowDays} setCheckInDate={setCheckInDate} />
       </StyledBookingApp>
     );
   }

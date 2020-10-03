@@ -111,7 +111,7 @@ const BottomBar = styled.div `
   margin: 0 15px;
 `;
 
-const Calendar = ({month1, month2, year, year2, setMonth1, checkInPicker, checkOutPicker, lowDays, setCheckIn}) => {
+const Calendar = ({month1, month2, year, year2, setMonth1, checkInPicker, checkOutPicker, lowDays, setCheckInDate}) => {
   if (checkInPicker) {
     return (
       <CheckInCalendar id="calendar">
@@ -128,8 +128,8 @@ const Calendar = ({month1, month2, year, year2, setMonth1, checkInPicker, checkO
                 <LeftChevron onClick={() => setMonth1(month1 - 1)}>{'<'}</LeftChevron>
                 <RightChevron onClick={() => setMonth1(month1 + 1)}>{'>'}</RightChevron>
                 <StyledCalendar>
-                  <CalendarMonth month={month1} year={year} month1={true} lowDays={lowDays} setCheckIn={setCheckIn}/>
-                  <CalendarMonth month={month2} year={year2} month1={false} lowDays={lowDays} setCheckIn={setCheckIn}/>
+                  <CalendarMonth month={month1} year={year} month1={true} lowDays={lowDays} setCheckInDate={setCheckInDate}/>
+                  <CalendarMonth month={month2} year={year2} month1={false} lowDays={lowDays} setCheckInDate={setCheckInDate}/>
                 </StyledCalendar>
                 <BottomBar />
             </DayPicker>

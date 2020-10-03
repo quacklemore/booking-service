@@ -23,7 +23,7 @@ const Low = styled(Day) `
   background-clip: content-box;
 `;
 
-var CalendarDay = ({day, lowDays, setCheckIn}) => {
+var CalendarDay = ({day, lowDays, setCheckInDate}) => {
   let isLowDay = false;
   if (lowDays && day) {
     for (var i = 0; i < lowDays.length; i++) {
@@ -39,10 +39,10 @@ var CalendarDay = ({day, lowDays, setCheckIn}) => {
     )
   } else if (isLowDay) {
     return(
-      <Low onClick={(event) => setCheckIn(day)}>{day.getDate()}</Low>
+      <Low onClick={(event) => setCheckInDate(day)}>{day.getDate()}</Low>
     )
   } else return(
-    <Day onClick={(event) => setCheckIn(day)}>{day.getDate()}</Day>
+    <Day onClick={(event) => setCheckInDate(day)}>{day.getDate()}</Day>
   )
 }
 
