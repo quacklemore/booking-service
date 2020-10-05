@@ -61,6 +61,9 @@ var CalendarDay = ({day, lowDays, setCheckInDate, checkInPicker, checkOutPicker,
   let isCheckOut = false;
   let isLowDay = false;
   let isStay = false;
+  let isBeforeCheckIn = false;
+  let isAfterCheckOut = false;
+
   if (lowDays && day) {
     for (var i = 0; i < lowDays.length; i++) {
       if (lowDays[i].getDate() === day.getDate() && lowDays[i].getMonth() === day.getMonth() && lowDays[i].getFullYear() === day.getFullYear()) {
@@ -89,6 +92,26 @@ var CalendarDay = ({day, lowDays, setCheckInDate, checkInPicker, checkOutPicker,
         }
       }
     }
+    if (checkInDate) {
+      if (day.getDate() < checkInDate.getDate()) {
+        if (day.getMonth() < checkInDate.getMonth()) {
+          if (day.getFullYear() < checkInDate.getFullYear()) {
+            isBeforeCheckIn = true;
+          }
+        }
+      }
+    }
+
+    // if (checkOutDate) {
+    //   if (day.getDate() >= checkOutDate.getDate()) {
+    //     if (day.getMonth() >= checkOutDate.getMonth()) {
+    //       if (day.getFullYear() >= checkOutDate.getFullYear()) {
+    //         isAfterCheckOut = true;
+    //       }
+    //     }
+    //   }
+    // }
+
   }
 
 
@@ -138,6 +161,14 @@ var CalendarDay = ({day, lowDays, setCheckInDate, checkInPicker, checkOutPicker,
       return (
         <Day />
       )
+    } else if (isLowDay && isBeforeCheckIn) {
+      return(
+        <Low > </Low>
+      );
+    } else if (isBeforeCheckIn) {
+      return (
+        <Day ></Day>
+      );
     } else if (isLowDay && isCheckIn) {
       return(
         <CheckInLow onClick={(event) => setCheckOutDate(day)}>{day.getDate()}</CheckInLow>

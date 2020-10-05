@@ -75,12 +75,26 @@ const BookingApp = () => {
   }), [month1];
 
   useEffect(() => {
+    if (checkOutDate) {
+      if (checkInDate.getDate() >= checkOutDate.getDate()) {
+        if (checkInDate.getMonth() >= checkOutDate.getMonth()) {
+          if (checkInDate.getFullYear() >= checkOutDate.getFullYear()) {
+            setCheckOutDate(undefined);
+          }
+        }
+      }
+    }
     setCheckInPicker(false);
-  }, [checkInDate])
+    setCheckOutPicker(true);
+  }, [checkInDate]);
 
   useEffect(() => {
     setCheckOutPicker(false);
-  }, [checkOutDate])
+  }, [checkOutDate]);
+
+  useEffect(() => {
+    setCheckOutPicker(false)
+  }, [checkInPicker]);
 
   if (!checkInPicker && !checkOutPicker) {
     return (
