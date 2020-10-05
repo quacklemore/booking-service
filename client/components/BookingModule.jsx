@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import styled from 'styled-components';
 
 import BookingApp from './BookingApp.jsx';
-
+import GuestsApp from './GuestsApp.jsx';
 const CheckRates = styled.div`
   position: relative;
   flex-basis: auto;
@@ -48,7 +48,7 @@ const BookingModule = () => (
       <TripSearch>
         <ReactContainer>
           <BookingApp />
-
+          <GuestsApp />
         </ReactContainer>
       </TripSearch>
     </MetaInner>
