@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 var db = require('./index.js');
 var faker = require('faker');
 
-var reservations = require('../../bookingSampleData/sampleReservations.js');
+
 
 var dbUrl = 'mongodb://localhost/booking'
 mongoose.connect(dbUrl, {
