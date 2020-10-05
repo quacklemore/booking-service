@@ -8,8 +8,10 @@ const Day = styled.div`
   display: inline-block;
   border: 2px solid rgba(0,0,0,0);
   margin: -2px 0 0 -2px;
-  height: 36px;
-  line-height: 36px;
+  padding: 6px;
+  height: 30px;
+  width: 30px;
+  line-height: 30px;
   font-size: 14px;
   cursor: pointer;
   vertical-align: top;
@@ -36,24 +38,36 @@ const Stay = styled(Day) `
 `;
 
 const Low = styled(Day) `
-  border-radius: 6px;
+  border-radius: 13px;
   background-color: #f2b203;
   background-clip: content-box;
+  height: 30px;
+  width: 30px;
+  padding: 6px;
 `;
 
 const CheckInLow = styled(CheckIn) `
   background-color: #f2b203;
   background-clip: content-box;
+  height: 30px;
+  width: 30px;
+  padding: 6px;
 `;
 
 const CheckOutLow = styled(CheckOut) `
   background-color: #f2b203;
   background-clip: content-box;
+  height: 30px;
+  width: 30px;
+  padding: 6px;
 `;
 
 const StayLow = styled(Stay) `
   background-color: #f2b203;
   background-clip: content-box;
+  height: 30px;
+  width: 30px;
+  padding: 6px;
 `;
 
 var CalendarDay = ({day, lowDays, setCheckInDate, checkInPicker, checkOutPicker, setCheckOutDate, checkInDate, checkOutDate}) => {

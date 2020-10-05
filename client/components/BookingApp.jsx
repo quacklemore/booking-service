@@ -92,10 +92,6 @@ const BookingApp = () => {
     setCheckOutPicker(false);
   }, [checkOutDate]);
 
-  useEffect(() => {
-    setCheckOutPicker(false)
-  }, [checkInPicker]);
-
   if (!checkInPicker && !checkOutPicker) {
     return (
       <StyledBookingApp>
