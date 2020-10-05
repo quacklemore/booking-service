@@ -14,10 +14,16 @@ mongoose.connect(dbUrl, {
 
 var locations = [];
 for (var i = 0; i < 100; i++ ) {
+  let lowDays = [];
+  var today = new Date();
+  for (var j = 0; j < 40; j++) {
+    lowDays.push(faker.date.future(0.12, today))
+  }
   location = {
     id: i,
     rooms: 10,
-    name: faker.lorem.words()
+    name: faker.lorem.words(),
+    lowDays: lowDays
   };
   locations.push(db.createLocation(location));
 }
