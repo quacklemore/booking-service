@@ -48,13 +48,18 @@ const BookingApp = () => {
 
     setYear2(today.getFullYear())
 
-    setLowDays(CalendarHelper.prototype.randomDates(today, new Date(today.getTime() + 10000000000), 50));
+    // setLowDays(CalendarHelper.prototype.randomDates(today, new Date(today.getTime() + 10000000000), 50));
     axios({
-      url: '/api/trips/0',
+      url: '/api/low-days/0',
       method: 'get',
     })
     .then((result) => {
-      setTrips(result.data)
+      let lowPriceDays = [];
+      for (let day of result.data[0].lowDays) {
+        lowPriceDays.push(new Date(day));
+      }
+      console.log(lowPriceDays.length)
+      setLowDays(lowPriceDays);
     })
   },[]);
 

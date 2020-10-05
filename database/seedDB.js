@@ -17,7 +17,7 @@ for (var i = 0; i < 100; i++ ) {
   let lowDays = [];
   var today = new Date();
   for (var j = 0; j < 40; j++) {
-    lowDays.push(faker.date.future(0.12, today))
+    lowDays.push(new Date(faker.date.future(0.5, today)))
   }
   location = {
     id: i,

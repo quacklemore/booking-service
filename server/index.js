@@ -18,6 +18,13 @@ app.get('/api/trips/:id', (req, res) => {
   });
 });
 
+app.get('/api/low-days/:id', (req, res) => {
+  db.getLocationInformation(req.params.id)
+  .then(result => {
+    res.send(result);
+  });
+})
+
 app.post('/api/trips/', (req, res) => {
   db.save(req.body.trip)
   .then((result => {

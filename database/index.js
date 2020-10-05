@@ -69,7 +69,23 @@ var createLocation = (location) => {
   });
 }
 
+var getLocationInformation = (locationId) => {
+  return new Promise((resolve, reject) => {
+    Location.find({
+      locationId: locationId
+    }).exec((err, results) => {
+      if (err) {
+        reject(err);
+      } else {
+        resolve(results);
+      }
+    });
+  });
+}
+
+
 
 module.exports.save = save;
 module.exports.getReservationsForLocation = getReservationsForLocation;
 module.exports.createLocation = createLocation;
+module.exports.getLocationInformation = getLocationInformation;

@@ -104,6 +104,11 @@ const LeftChevron = styled(Chevron) `
   float: left;
 `;
 
+const UnclickableLeftChevron = styled(LeftChevron) `
+    color: #bababa;
+    cursor: default;
+`;
+
 const BottomBar = styled.div `
   padding: 16px 0;
   border: solid #e0e0e0;
@@ -112,58 +117,126 @@ const BottomBar = styled.div `
 `;
 
 const Calendar = ({month1, month2, year, year2, setMonth1, checkInPicker, checkOutPicker, lowDays, setCheckInDate, setCheckOutDate, checkInDate, checkOutDate}) => {
+  let today = new Date();
+  let beforeNow = false;
+  let previousMonth = month1 - 1;
+  let previousYear = year;
+  if (previousMonth < 0) {
+    previousMonth = 11;
+    previousYear--;
+  }
+
+  if (previousMonth < today.getMonth() && previousYear <= today.getFullYear() || previousYear < today.getFullYear) {
+    beforeNow = true;
+  }
   if (checkInPicker) {
-    return (
-      <CheckInCalendar id="calendar">
-        <CalendarBox>
-          <div>
-            <TopBar>
-              Select a date to continue
-              <TopBarInset>
-                <LowPrice></LowPrice>
-                {' Lowest Priced Dates'}
-              </TopBarInset>
-            </TopBar>
-            <DayPicker>
-                <LeftChevron onClick={() => setMonth1(month1 - 1)}>{'<'}</LeftChevron>
-                <RightChevron onClick={() => setMonth1(month1 + 1)}>{'>'}</RightChevron>
-                <StyledCalendar>
-                  <CalendarMonth month={month1} year={year} month1={true} lowDays={lowDays} setCheckInDate={setCheckInDate} setCheckOutDate={setCheckOutDate} checkInPicker={checkInPicker} checkOutPicker={checkOutPicker} checkInDate={checkInDate} checkOutDate={checkOutDate}/>
-                  <CalendarMonth month={month2} year={year2} month1={false} lowDays={lowDays} setCheckInDate={setCheckInDate} setCheckOutDate={setCheckOutDate} checkInPicker={checkInPicker} checkOutPicker={checkOutPicker} checkInDate={checkInDate} checkOutDate={checkOutDate}/>
-                </StyledCalendar>
-                <BottomBar />
-            </DayPicker>
-          </div>
-          <PickerPointer></PickerPointer>
-        </CalendarBox>
-      </CheckInCalendar>
-    );
+    if (beforeNow) {
+      return (
+        <CheckInCalendar id="calendar">
+          <CalendarBox>
+            <div>
+              <TopBar>
+                Select a date to continue
+                <TopBarInset>
+                  <LowPrice></LowPrice>
+                  {' Lowest Priced Dates'}
+                </TopBarInset>
+              </TopBar>
+              <DayPicker>
+                  <UnclickableLeftChevron >{'<'}</UnclickableLeftChevron>
+                  <RightChevron onClick={() => setMonth1(month1 + 1)}>{'>'}</RightChevron>
+                  <StyledCalendar>
+                    <CalendarMonth month={month1} year={year} month1={true} lowDays={lowDays} setCheckInDate={setCheckInDate} setCheckOutDate={setCheckOutDate} checkInPicker={checkInPicker} checkOutPicker={checkOutPicker} checkInDate={checkInDate} checkOutDate={checkOutDate}/>
+                    <CalendarMonth month={month2} year={year2} month1={false} lowDays={lowDays} setCheckInDate={setCheckInDate} setCheckOutDate={setCheckOutDate} checkInPicker={checkInPicker} checkOutPicker={checkOutPicker} checkInDate={checkInDate} checkOutDate={checkOutDate}/>
+                  </StyledCalendar>
+                  <BottomBar />
+              </DayPicker>
+            </div>
+            <PickerPointer></PickerPointer>
+          </CalendarBox>
+        </CheckInCalendar>
+      );
+    } else {
+      return (
+        <CheckInCalendar id="calendar">
+          <CalendarBox>
+            <div>
+              <TopBar>
+                Select a date to continue
+                <TopBarInset>
+                  <LowPrice></LowPrice>
+                  {' Lowest Priced Dates'}
+                </TopBarInset>
+              </TopBar>
+              <DayPicker>
+                  <LeftChevron onClick={() => setMonth1(month1 - 1)}>{'<'}</LeftChevron>
+                  <RightChevron onClick={() => setMonth1(month1 + 1)}>{'>'}</RightChevron>
+                  <StyledCalendar>
+                    <CalendarMonth month={month1} year={year} month1={true} lowDays={lowDays} setCheckInDate={setCheckInDate} setCheckOutDate={setCheckOutDate} checkInPicker={checkInPicker} checkOutPicker={checkOutPicker} checkInDate={checkInDate} checkOutDate={checkOutDate}/>
+                    <CalendarMonth month={month2} year={year2} month1={false} lowDays={lowDays} setCheckInDate={setCheckInDate} setCheckOutDate={setCheckOutDate} checkInPicker={checkInPicker} checkOutPicker={checkOutPicker} checkInDate={checkInDate} checkOutDate={checkOutDate}/>
+                  </StyledCalendar>
+                  <BottomBar />
+              </DayPicker>
+            </div>
+            <PickerPointer></PickerPointer>
+          </CalendarBox>
+        </CheckInCalendar>
+      );
+    }
   } else if (checkOutPicker) {
-    return (
-      <CheckOutCalendar id="calendar">
-        <CalendarBox>
-          <div>
-            <TopBar>
-              Select a date to continue
-              <TopBarInset>
-                <LowPrice></LowPrice>
-                {' Lowest Priced Dates'}
-              </TopBarInset>
-            </TopBar>
-            <DayPicker>
-                <LeftChevron onClick={() => setMonth1(month1 - 1)}>{'<'}</LeftChevron>
-                <RightChevron onClick={() => setMonth1(month1 + 1)}>{'>'}</RightChevron>
-                <StyledCalendar>
-                  <CalendarMonth month={month1} year={year} month1={true} lowDays={lowDays} setCheckOutDate={setCheckOutDate} checkInPicker={checkInPicker} checkOutPicker={checkOutPicker} checkInDate={checkInDate} checkOutDate={checkOutDate}/>
-                  <CalendarMonth month={month2} year={year2} month1={false} lowDays={lowDays} setCheckOutDate={setCheckOutDate} checkInPicker={checkInPicker} checkOutPicker={checkOutPicker} checkInDate={checkInDate} checkOutDate={checkOutDate}/>
-                </StyledCalendar>
-                <BottomBar />
-            </DayPicker>
-          </div>
-          <PickerPointer></PickerPointer>
-        </CalendarBox>
-      </CheckOutCalendar>
-    );
+    if (beforeNow) {
+      return (
+        <CheckOutCalendar id="calendar">
+          <CalendarBox>
+            <div>
+              <TopBar>
+                Select a date to continue
+                <TopBarInset>
+                  <LowPrice></LowPrice>
+                  {' Lowest Priced Dates'}
+                </TopBarInset>
+              </TopBar>
+              <DayPicker>
+                  <UnclickableLeftChevron >{'<'}</UnclickableLeftChevron>
+                  <RightChevron onClick={() => setMonth1(month1 + 1)}>{'>'}</RightChevron>
+                  <StyledCalendar>
+                    <CalendarMonth month={month1} year={year} month1={true} lowDays={lowDays} setCheckOutDate={setCheckOutDate} checkInPicker={checkInPicker} checkOutPicker={checkOutPicker} checkInDate={checkInDate} checkOutDate={checkOutDate}/>
+                    <CalendarMonth month={month2} year={year2} month1={false} lowDays={lowDays} setCheckOutDate={setCheckOutDate} checkInPicker={checkInPicker} checkOutPicker={checkOutPicker} checkInDate={checkInDate} checkOutDate={checkOutDate}/>
+                  </StyledCalendar>
+                  <BottomBar />
+              </DayPicker>
+            </div>
+            <PickerPointer></PickerPointer>
+          </CalendarBox>
+        </CheckOutCalendar>
+      );
+    } else {
+      return (
+        <CheckOutCalendar id="calendar">
+          <CalendarBox>
+            <div>
+              <TopBar>
+                Select a date to continue
+                <TopBarInset>
+                  <LowPrice></LowPrice>
+                  {' Lowest Priced Dates'}
+                </TopBarInset>
+              </TopBar>
+              <DayPicker>
+                  <LeftChevron onClick={() => setMonth1(month1 - 1)}>{'<'}</LeftChevron>
+                  <RightChevron onClick={() => setMonth1(month1 + 1)}>{'>'}</RightChevron>
+                  <StyledCalendar>
+                    <CalendarMonth month={month1} year={year} month1={true} lowDays={lowDays} setCheckOutDate={setCheckOutDate} checkInPicker={checkInPicker} checkOutPicker={checkOutPicker} checkInDate={checkInDate} checkOutDate={checkOutDate}/>
+                    <CalendarMonth month={month2} year={year2} month1={false} lowDays={lowDays} setCheckOutDate={setCheckOutDate} checkInPicker={checkInPicker} checkOutPicker={checkOutPicker} checkInDate={checkInDate} checkOutDate={checkOutDate}/>
+                  </StyledCalendar>
+                  <BottomBar />
+              </DayPicker>
+            </div>
+            <PickerPointer></PickerPointer>
+          </CalendarBox>
+        </CheckOutCalendar>
+      );
+    }
   }
 }
 
