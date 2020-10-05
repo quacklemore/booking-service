@@ -17,8 +17,11 @@ let tripSchema = mongoose.Schema({
 let locationSchema = mongoose.Schema({
   locationId: {type: Number, required: true},
   rooms: {type: Number, required: true},
-  name: String
-})
+  name: String,
+  lowDays: [{}]
+});
+
+
 
 let Trip = mongoose.model('Trip', tripSchema);
 let Location = mongoose.model('Location', locationSchema);
@@ -54,7 +57,8 @@ var createLocation = (location) => {
     Location.create({
       locationId: location.id,
       rooms: location.rooms,
-      name: location.name
+      name: location.name,
+      lowDays: location.lowDays
     }, (err, results) => {
       if (err) {
         reject(err);
@@ -65,6 +69,23 @@ var createLocation = (location) => {
   });
 }
 
+var getLocationInformation = (locationId) => {
+  return new Promise((resolve, reject) => {
+    Location.find({
+      locationId: locationId
+    }).exec((err, results) => {
+      if (err) {
+        reject(err);
+      } else {
+        resolve(results);
+      }
+    });
+  });
+}
+
+
+
 module.exports.save = save;
 module.exports.getReservationsForLocation = getReservationsForLocation;
 module.exports.createLocation = createLocation;
+module.exports.getLocationInformation = getLocationInformation;

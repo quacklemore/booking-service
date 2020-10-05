@@ -48,13 +48,18 @@ const BookingApp = () => {
 
     setYear2(today.getFullYear())
 
-    setLowDays(CalendarHelper.prototype.randomDates(today, new Date(today.getTime() + 10000000000), 50));
+    // setLowDays(CalendarHelper.prototype.randomDates(today, new Date(today.getTime() + 10000000000), 50));
     axios({
-      url: '/api/trips/0',
+      url: '/api/low-days/0',
       method: 'get',
     })
     .then((result) => {
-      setTrips(result.data)
+      let lowPriceDays = [];
+      for (let day of result.data[0].lowDays) {
+        lowPriceDays.push(new Date(day));
+      }
+      console.log(lowPriceDays.length)
+      setLowDays(lowPriceDays);
     })
   },[]);
 
@@ -75,12 +80,22 @@ const BookingApp = () => {
   }), [month1];
 
   useEffect(() => {
+    if (checkOutDate) {
+      if (checkInDate.getDate() >= checkOutDate.getDate()) {
+        if (checkInDate.getMonth() >= checkOutDate.getMonth()) {
+          if (checkInDate.getFullYear() >= checkOutDate.getFullYear()) {
+            setCheckOutDate(undefined);
+          }
+        }
+      }
+    }
     setCheckInPicker(false);
-  }, [checkInDate])
+    setCheckOutPicker(true);
+  }, [checkInDate]);
 
   useEffect(() => {
     setCheckOutPicker(false);
-  }, [checkOutDate])
+  }, [checkOutDate]);
 
   if (!checkInPicker && !checkOutPicker) {
     return (
@@ -92,7 +107,7 @@ const BookingApp = () => {
     return (
       <StyledBookingApp>
         <Booking setCheckOutPicker={setCheckOutPicker} setCheckInPicker={setCheckInPicker} checkInPicker={checkInPicker} checkOutPicker={checkOutPicker} checkInDate={checkInDate} checkOutDate={checkOutDate}/>
-        <Calendar year={year} year2={year2} month1={month1} month2={month2} setMonth1={setMonth1} checkInPicker={checkInPicker} checkOutPicker={checkOutPicker} lowDays={lowDays} setCheckInDate={setCheckInDate} setCheckOutDate={setCheckOutDate}/>
+        <Calendar year={year} year2={year2} month1={month1} month2={month2} setMonth1={setMonth1} checkInPicker={checkInPicker} checkOutPicker={checkOutPicker} lowDays={lowDays} setCheckInDate={setCheckInDate} setCheckOutDate={setCheckOutDate} checkInDate={checkInDate} checkOutDate={checkOutDate}/>
       </StyledBookingApp>
     );
   }
