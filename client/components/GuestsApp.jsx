@@ -75,17 +75,23 @@ const GuestsApp = () => {
 
   useEffect(() => {
     if (children === 1) {
-      setDisplayRooms('child');
+      setDisplayChildren('child');
     } else {
-      setDisplayRooms('children');
+      setDisplayChildren('children');
+    }
+    if (children < 0) {
+      setChildren(0);
     }
   }, [children]);
 
   useEffect(() => {
     if (adults === 1) {
-      setDisplayRooms('adult');
+      setDisplayAdults('adult');
     } else {
-      setDisplayRooms('adults');
+      setDisplayAdults('adults');
+    }
+    if (adults < 1) {
+      setAdults(1);
     }
   }, [adults]);
 
@@ -95,13 +101,19 @@ const GuestsApp = () => {
     } else {
       setDisplayRooms('rooms');
     }
+    if (rooms < 1) {
+      setRooms(1);
+    }
+    if (adults < rooms) {
+      setAdults(rooms);
+    }
   }, [rooms]);
 
   if (showPicker) {
     return (
       <div>
-        <GuestsPicker/>
-        <GuestButton >
+        <GuestsPicker showPicker={showPicker} setShowPicker={setShowPicker} children={children} adults={adults} rooms={rooms} setAdults={setAdults} setRooms={setRooms} setChildren={setChildren}/>
+        <GuestButton onClick={(event) => setShowPicker(!showPicker)}>
           <GuestsInfoContainer>
             <GuestsIcon></GuestsIcon>
             <InfoContainer>
@@ -114,15 +126,17 @@ const GuestsApp = () => {
      );
   } else {
     return (
-      <GuestButton >
-        <GuestsInfoContainer>
-          <GuestsIcon></GuestsIcon>
-          <InfoContainer>
-            <GuestsTitle >Guests</GuestsTitle>
-      <GuestInfo>{rooms} {displayRooms}, {adults} {displayAdults}, {children} {displayChildren}</GuestInfo>
-          </InfoContainer>
-        </GuestsInfoContainer>
-      </GuestButton>
+      <div>
+        <GuestButton onClick={(event) => setShowPicker(!showPicker)}>
+          <GuestsInfoContainer>
+            <GuestsIcon></GuestsIcon>
+            <InfoContainer>
+              <GuestsTitle >Guests</GuestsTitle>
+        <GuestInfo>{rooms} {displayRooms}, {adults} {displayAdults}, {children} {displayChildren}</GuestInfo>
+            </InfoContainer>
+          </GuestsInfoContainer>
+        </GuestButton>
+      </div>
     );
   }
 }
