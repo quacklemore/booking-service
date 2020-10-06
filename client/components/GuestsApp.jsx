@@ -8,7 +8,7 @@ const GuestButton = styled.button `
   flex: 1 1 0%;
   display: inline-block;
   height: 100%;
-  width: 361px;
+  width: 362px;
   margin: 0 0 0 8px;
   cursor: pointer;
   outline: none;
