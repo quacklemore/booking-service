@@ -3,12 +3,13 @@ import ReactDOM from 'react-dom';
 import styled from 'styled-components';
 
 import GuestsPicker from './GuestsPicker.jsx';
+import SupervisorAccountSharpIcon from '@material-ui/icons/SupervisorAccountSharp';
 
 const GuestButton = styled.button `
   flex: 1 1 0%;
   display: inline-block;
   height: 100%;
-  width: 362px;
+  width: 361px;
   margin: 0 0 0 8px;
   cursor: pointer;
   outline: none;
@@ -27,7 +28,7 @@ const GuestButton = styled.button `
 `;
 
 const GuestsInfoContainer = styled.div `
-  height: 100%;
+  height: 45px;
   background: #fff;
   border: none;
   border-radius: 2px;
@@ -37,10 +38,12 @@ const GuestsInfoContainer = styled.div `
 `;
 
 const GuestsIcon = styled.span `
+  top: 10px;
   color: #8c8c8c;
   vertical-align: middle;
   display: inline-block;
   margin: 0 2px 0 8px;
+  position: relative;
 `;
 
 const InfoContainer = styled.span `
@@ -49,7 +52,8 @@ const InfoContainer = styled.span `
     font-weight: 700;
     line-height: 20px;
     position: relative;
-    left: 20px;
+    left: 40px;
+    top: -20px;
 `;
 
 const GuestsTitle = styled.span `
@@ -116,7 +120,7 @@ const GuestsApp = ({setGuestsPicker, guestsPicker}) => {
         <GuestsPicker showPicker={guestsPicker} setShowPicker={setGuestsPicker} children={children} adults={adults} rooms={rooms} setAdults={setAdults} setRooms={setRooms} setChildren={setChildren}/>
         <GuestButton onClick={(event) => setGuestsPicker(!guestsPicker)}>
           <GuestsInfoContainer>
-            <GuestsIcon></GuestsIcon>
+            <GuestsIcon><SupervisorAccountSharpIcon /></GuestsIcon>
             <InfoContainer>
               <GuestsTitle >Guests</GuestsTitle>
       <GuestInfo>{rooms} {displayRooms}, {adults} {displayAdults}, {children} {displayChildren}</GuestInfo>
@@ -130,7 +134,7 @@ const GuestsApp = ({setGuestsPicker, guestsPicker}) => {
       <div>
         <GuestButton onClick={(event) => setGuestsPicker(!guestsPicker)}>
           <GuestsInfoContainer>
-            <GuestsIcon></GuestsIcon>
+            <GuestsIcon><SupervisorAccountSharpIcon /></GuestsIcon>
             <InfoContainer>
               <GuestsTitle >Guests</GuestsTitle>
         <GuestInfo>{rooms} {displayRooms}, {adults} {displayAdults}, {children} {displayChildren}</GuestInfo>

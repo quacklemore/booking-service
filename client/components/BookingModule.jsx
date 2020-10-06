@@ -4,6 +4,8 @@ import styled from 'styled-components';
 
 import BookingApp from './BookingApp.jsx';
 import GuestsApp from './GuestsApp.jsx';
+
+
 const CheckRates = styled.div`
   position: relative;
   flex-basis: auto;
