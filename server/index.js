@@ -11,6 +11,8 @@ app.use(express.static(path.join(__dirname, '..','public')));
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
+
+
 app.get('/api/trips/:id', (req, res) => {
   db.getReservationsForLocation(req.params.id)
   .then(result => {
@@ -31,6 +33,10 @@ app.post('/api/trips/', (req, res) => {
     res.send(result);
   }))
 });
+
+app.get('/*', (req, res) => {
+  res.sendFile(path.join(__dirname, '..','public', 'index.html'));
+})
 
 app.listen(PORT, () => {
   console.log(`Listening on port ${PORT}`);
