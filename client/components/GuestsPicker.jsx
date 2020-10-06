@@ -19,7 +19,7 @@ const GuestsPickerContainer = styled.div `
   background-color: #fff;
   filter: drop-shadow(0 2px 4px rgba(0,0,0,.25));
   width: 300px;
-  height: 300px;
+  height: 160px;
   display: flex;
   position: absolute;
   top: 100px;
@@ -63,6 +63,7 @@ const Category = styled.div `
   font-weight: 700;
   padding-right: 16px;
   line-height: 36px;
+  height: 30px;
 `;
 
 const NumberSelector = styled.div `
@@ -96,6 +97,9 @@ const PlusMinusButton = styled.button `
   font-variant: normal;
   font-size: inherit;
   line-height: 1;
+
+  left: 50px;
+  position: relative;
 `;
 
 const Counter = styled.span `
@@ -106,6 +110,8 @@ const Counter = styled.span `
   box-shadow: inset 0 3px 3px -3px rgba(0,0,0,.25);
   width: 50px;
   text-align: center;
+  left: 50px;
+  position: relative;
 `;
 
 
@@ -122,13 +128,13 @@ const GuestsPicker = ({setShowPicker, showPicker, adults, setAdults, children, s
         <ExitPicker onClick={(event) => setShowPicker(false)}>X</ExitPicker>
         <Selector>
           <Category>
-            Rooms
+            {'Rooms   '}
             <PlusMinusButton onClick={(event) => setRooms(rooms + 1)}>+</PlusMinusButton>
             <Counter>{rooms}</Counter>
             <PlusMinusButton onClick={(event) => setRooms(rooms - 1)}>-</PlusMinusButton>
           </Category>
           <Category>
-            Adults
+            {'Adults        '}
             <PlusMinusButton onClick={(event) => setAdults(adults + 1)}>+</PlusMinusButton>
             <Counter>{adults}</Counter>
             <PlusMinusButton onClick={(event) => setAdults(adults - 1)}>-</PlusMinusButton>
