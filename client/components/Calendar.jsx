@@ -225,10 +225,7 @@ const Calendar = ({month1, month2, year, year2, setMonth1, checkInPicker, checkO
               <DayPicker>
                   <LeftChevron onClick={() => setMonth1(month1 - 1)}>{'<'}</LeftChevron>
                   <RightChevron onClick={() => setMonth1(month1 + 1)}>{'>'}</RightChevron>
-                  <StyledCalendar>
-                    <CalendarMonth month={month1} year={year} month1={true} lowDays={lowDays} setCheckOutDate={setCheckOutDate} checkInPicker={checkInPicker} checkOutPicker={checkOutPicker} checkInDate={checkInDate} checkOutDate={checkOutDate}/>
-                    <CalendarMonth month={month2} year={year2} month1={false} lowDays={lowDays} setCheckOutDate={setCheckOutDate} checkInPicker={checkInPicker} checkOutPicker={checkOutPicker} checkInDate={checkInDate} checkOutDate={checkOutDate}/>
-                  </StyledCalendar>
+                  {props.children}
                   <BottomBar />
               </DayPicker>
             </div>
@@ -241,3 +238,4 @@ const Calendar = ({month1, month2, year, year2, setMonth1, checkInPicker, checkO
 }
 
 export default Calendar;
+

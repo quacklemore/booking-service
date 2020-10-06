@@ -35,12 +35,15 @@ const BookingApp = ({setCheckOutPicker, setCheckInPicker, checkOutPicker, checkI
   useEffect(() => {
     setYear(today.getFullYear());
     setMonth1(today.getMonth());
+    setYear2(today.getFullYear());
 
-    setYear2(today.getFullYear())
+    let id = window.location.pathname;
+    if (id === '/') {
+      id = '/0';
+    }
 
-    // setLowDays(CalendarHelper.prototype.randomDates(today, new Date(today.getTime() + 10000000000), 50));
     axios({
-      url: '/api/low-days/0',
+      url: `/api/low-days${id}`,
       method: 'get',
     })
     .then((result) => {

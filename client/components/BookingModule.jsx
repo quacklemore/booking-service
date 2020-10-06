@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import ReactDOM from 'react-dom';
 import styled from 'styled-components';
 
+
 import BookingApp from './BookingApp.jsx';
 import GuestsApp from './GuestsApp.jsx';
 
@@ -53,14 +54,14 @@ const BookingModule = () => {
     if (checkInPicker || checkOutPicker) {
       setGuestsPicker(false);
     }
-  }, [checkInPicker, checkOutPicker])
+  }, [checkInPicker, checkOutPicker]);
 
   useEffect(() => {
     if (guestsPicker) {
       setCheckInPicker(false);
       setCheckOutPicker(false);
     }
-  }, [guestsPicker])
+  }, [guestsPicker]);
 
   return (
     <CheckRates>
