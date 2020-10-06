@@ -11,22 +11,13 @@ import Booking from './Booking.jsx';
 import CalendarHelper from '../helpers/calendar.js';
 
 
-
-// const Calendars = styled.div`
-//   display: grid;
-//   grid-template-columns: 1fr 1fr;
-//   position: relative;
-//   box-shadow: 0 2px 4px 0 rgba(0,0,0,.25);
-// `;
-
-
 const StyledBookingApp = styled.div`
   margin: 8px 0;
   height: 44px;
 `;
 
 
-const BookingApp = () => {
+const BookingApp = ({setCheckOutPicker, setCheckInPicker, checkOutPicker, checkInPicker}) => {
   const [trips, setTrips] = useState([]);
   const [today, setToday] = useState(new Date())
   const [month1, setMonth1] = useState();
@@ -37,8 +28,7 @@ const BookingApp = () => {
 
   const [lowDays, setLowDays] = useState([new Date()]);
 
-  const [checkInPicker, setCheckInPicker] = useState(false);
-  const [checkOutPicker, setCheckOutPicker] = useState(false);
+
 
   const [checkInDate, setCheckInDate] = useState();
   const [checkOutDate, setCheckOutDate] = useState();
@@ -58,7 +48,6 @@ const BookingApp = () => {
       for (let day of result.data[0].lowDays) {
         lowPriceDays.push(new Date(day));
       }
-      console.log(lowPriceDays.length)
       setLowDays(lowPriceDays);
     })
   },[]);

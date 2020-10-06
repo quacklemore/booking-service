@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import styled from 'styled-components';
 
 import BookingApp from './BookingApp.jsx';
+import GuestsApp from './GuestsApp.jsx';
+
 
 const CheckRates = styled.div`
   position: relative;
@@ -15,7 +17,7 @@ const CheckRates = styled.div`
 const MetaInner = styled.div`
   padding: 4px 16px 0;
   box-shadow: 0 2px 4px 0 rgba(0,0,0,.1);
-  min-height: 430px;
+  min-height: 160px;
   box-sizing: border-box;
   border-radius: 2px;
   background-color: #fff;
@@ -42,17 +44,36 @@ const ReactContainer = styled.div`
   margin: 0 auto;
 `;
 
-const BookingModule = () => (
-  <CheckRates>
-    <MetaInner>
-      <TripSearch>
-        <ReactContainer>
-          <BookingApp />
+const BookingModule = () => {
+  const [checkInPicker, setCheckInPicker] = useState(false);
+  const [checkOutPicker, setCheckOutPicker] = useState(false);
+  const [guestsPicker, setGuestsPicker] = useState(false);
 
-        </ReactContainer>
-      </TripSearch>
-    </MetaInner>
-  </CheckRates>
-);
+  useEffect(() => {
+    if (checkInPicker || checkOutPicker) {
+      setGuestsPicker(false);
+    }
+  }, [checkInPicker, checkOutPicker])
+
+  useEffect(() => {
+    if (guestsPicker) {
+      setCheckInPicker(false);
+      setCheckOutPicker(false);
+    }
+  }, [guestsPicker])
+
+  return (
+    <CheckRates>
+      <MetaInner>
+        <TripSearch>
+          <ReactContainer>
+            <BookingApp setCheckInPicker={setCheckInPicker} setCheckOutPicker={setCheckOutPicker} checkInPicker={checkInPicker} checkOutPicker={checkOutPicker}/>
+            <GuestsApp guestsPicker={guestsPicker} setGuestsPicker={setGuestsPicker}/>
+          </ReactContainer>
+        </TripSearch>
+      </MetaInner>
+    </CheckRates>
+  )
+}
 
 export default BookingModule;
