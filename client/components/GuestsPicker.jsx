@@ -22,8 +22,7 @@ const GuestsPickerContainer = styled.div `
   height: 160px;
   display: flex;
   position: absolute;
-  top: 100px;
-  left: 402px;
+  left: 408px;
   bottom: auto;
   right: auto;
   z-index: 9991;

@@ -17,7 +17,7 @@ const StyledBookingApp = styled.div`
 `;
 
 
-const BookingApp = () => {
+const BookingApp = ({setCheckOutPicker, setCheckInPicker, checkOutPicker, checkInPicker}) => {
   const [trips, setTrips] = useState([]);
   const [today, setToday] = useState(new Date())
   const [month1, setMonth1] = useState();
@@ -28,8 +28,7 @@ const BookingApp = () => {
 
   const [lowDays, setLowDays] = useState([new Date()]);
 
-  const [checkInPicker, setCheckInPicker] = useState(false);
-  const [checkOutPicker, setCheckOutPicker] = useState(false);
+
 
   const [checkInDate, setCheckInDate] = useState();
   const [checkOutDate, setCheckOutDate] = useState();

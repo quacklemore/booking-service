@@ -8,7 +8,7 @@ const GuestButton = styled.button `
   flex: 1 1 0%;
   display: inline-block;
   height: 100%;
-  width: 350px;
+  width: 361px;
   margin: 0 0 0 8px;
   cursor: pointer;
   outline: none;
@@ -22,7 +22,7 @@ const GuestButton = styled.button `
   border: 1px solid #e0e0e0;
   border-radius: 3px;
   box-shadow: 0 1px 2px rgba(0,0,0,.1);
-  top: 100px;
+  top: 25px;
   position: relative;
 `;
 
@@ -48,24 +48,25 @@ const InfoContainer = styled.span `
     font-size: .8125em;
     font-weight: 700;
     line-height: 20px;
+    position: relative;
+    left: 20px;
 `;
 
 const GuestsTitle = styled.span `
   display: block;
   margin-bottom: 2px;
-  font-size: .75em;
+
   line-height: normal;
   color: #474747;
 `;
 
 const GuestInfo = styled.span `
   display: block;
-  font-size: .8125em;
   font-weight: 700;
   line-height: 20px;
 `;
-const GuestsApp = () => {
-  const [showPicker, setShowPicker] = useState(true);
+const GuestsApp = ({setGuestsPicker, guestsPicker}) => {
+  //const [showPicker, setShowPicker] = useState(true);
   const [adults, setAdults] = useState(1);
   const [children, setChildren] = useState(0);
   const [rooms, setRooms] = useState(1);
@@ -109,11 +110,11 @@ const GuestsApp = () => {
     }
   }, [rooms]);
 
-  if (showPicker) {
+  if (guestsPicker) {
     return (
       <div>
-        <GuestsPicker showPicker={showPicker} setShowPicker={setShowPicker} children={children} adults={adults} rooms={rooms} setAdults={setAdults} setRooms={setRooms} setChildren={setChildren}/>
-        <GuestButton onClick={(event) => setShowPicker(!showPicker)}>
+        <GuestsPicker showPicker={guestsPicker} setShowPicker={setGuestsPicker} children={children} adults={adults} rooms={rooms} setAdults={setAdults} setRooms={setRooms} setChildren={setChildren}/>
+        <GuestButton onClick={(event) => setGuestsPicker(!guestsPicker)}>
           <GuestsInfoContainer>
             <GuestsIcon></GuestsIcon>
             <InfoContainer>
@@ -127,7 +128,7 @@ const GuestsApp = () => {
   } else {
     return (
       <div>
-        <GuestButton onClick={(event) => setShowPicker(!showPicker)}>
+        <GuestButton onClick={(event) => setGuestsPicker(!guestsPicker)}>
           <GuestsInfoContainer>
             <GuestsIcon></GuestsIcon>
             <InfoContainer>
