@@ -126,7 +126,7 @@ const ChildrenCounter = styled(Counter) `
 `;
 
 const Icon = styled.span `
-  top: 10px;
+  top: 5px;
   color: #8c8c8c;
   vertical-align: middle;
   display: inline-block;
