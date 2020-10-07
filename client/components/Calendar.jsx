@@ -8,7 +8,7 @@ const StyledCalendarComponent = styled.div `
   position: absolute;
   top: -70px;
   right: auto;
-  z-index: 9991;
+  z-index: 999;
   transform: translateZ(0px);
 `;
 
@@ -92,7 +92,7 @@ const Chevron = styled.button `
     background: #fff;
     padding: 0;
     font-family: inherit;
-    z-index: 9999;
+    z-index: 999;
     position: relative;
 `;
 

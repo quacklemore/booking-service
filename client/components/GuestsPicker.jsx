@@ -1,6 +1,9 @@
 import React, {useState, useEffect} from 'react';
 import ReactDOM from 'react-dom';
 import styled from 'styled-components';
+import KingBedTwoToneIcon from '@material-ui/icons/KingBedTwoTone';
+import SupervisorAccountSharpIcon from '@material-ui/icons/SupervisorAccountSharp';
+import EmojiPeopleSharpIcon from '@material-ui/icons/EmojiPeopleSharp';
 
 const Point = styled.div `
   top: 30%;
@@ -101,6 +104,12 @@ const PlusMinusButton = styled.button `
   position: relative;
 `;
 
+const ChildrenPlusMinus = styled(PlusMinusButton) `
+  left: 40px;
+`;
+
+
+
 const Counter = styled.span `
   flex: 1 1 auto;
   display: inline-block;
@@ -112,8 +121,18 @@ const Counter = styled.span `
   left: 50px;
   position: relative;
 `;
+const ChildrenCounter = styled(Counter) `
+  left: 40px;
+`;
 
-
+const Icon = styled.span `
+  top: 10px;
+  color: #8c8c8c;
+  vertical-align: middle;
+  display: inline-block;
+  margin: 0 2px 0 8px;
+  position: relative;
+`;
 
 const Adults = styled.div `
 
@@ -127,22 +146,31 @@ const GuestsPicker = ({setShowPicker, showPicker, adults, setAdults, children, s
         <ExitPicker onClick={(event) => setShowPicker(false)}>X</ExitPicker>
         <Selector>
           <Category>
-            {'Rooms   '}
+            <Icon>
+              <KingBedTwoToneIcon />
+            </Icon>
+            {'Rooms'}
             <PlusMinusButton onClick={(event) => setRooms(rooms + 1)}>+</PlusMinusButton>
             <Counter>{rooms}</Counter>
             <PlusMinusButton onClick={(event) => setRooms(rooms - 1)}>-</PlusMinusButton>
           </Category>
           <Category>
+            <Icon>
+              <SupervisorAccountSharpIcon/>
+            </Icon>
             {'Adults        '}
             <PlusMinusButton onClick={(event) => setAdults(adults + 1)}>+</PlusMinusButton>
             <Counter>{adults}</Counter>
             <PlusMinusButton onClick={(event) => setAdults(adults - 1)}>-</PlusMinusButton>
           </Category>
           <Category>
+            <Icon>
+              <EmojiPeopleSharpIcon />
+            </Icon>
             Children
-            <PlusMinusButton onClick={(event) => setChildren(children + 1)}>+</PlusMinusButton>
-            <Counter>{children}</Counter>
-            <PlusMinusButton onClick={(event) => setChildren(children - 1)}>-</PlusMinusButton>
+            <ChildrenPlusMinus onClick={(event) => setChildren(children + 1)}>+</ChildrenPlusMinus>
+            <ChildrenCounter>{children}</ChildrenCounter>
+            <ChildrenPlusMinus onClick={(event) => setChildren(children - 1)}>-</ChildrenPlusMinus>
           </Category>
         </Selector>
       </GuestsPickerContainer>
