@@ -28,7 +28,7 @@ const GuestsPickerContainer = styled.div `
   left: 408px;
   bottom: auto;
   right: auto;
-  z-index: 9991;
+  z-index: 999;
   border-width: 1px;
   border-style: solid;
   border-color: #e0e0e0;
