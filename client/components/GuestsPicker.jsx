@@ -150,8 +150,6 @@ const GuestsPicker = ({setShowPicker, showPicker, adults, setAdults, children, s
               <KingBedTwoToneIcon />
             </Icon>
             {'Rooms'}
-            <PlusMinusButton onClick={(event) => setRooms(rooms + 1)}>+</PlusMinusButton>
-            <Counter>{rooms}</Counter>
             <PlusMinusButton onClick={(event) => setRooms(rooms - 1)}>-</PlusMinusButton>
             <Counter>{rooms}</Counter>
             <PlusMinusButton onClick={(event) => setRooms(rooms + 1)}>+</PlusMinusButton>
@@ -170,9 +168,9 @@ const GuestsPicker = ({setShowPicker, showPicker, adults, setAdults, children, s
               <EmojiPeopleSharpIcon />
             </Icon>
             Children
-            <ChildrenPlusMinus onClick={(event) => setChildren(children + 1)}>+</ChildrenPlusMinus>
-            <ChildrenCounter>{children}</ChildrenCounter>
             <ChildrenPlusMinus onClick={(event) => setChildren(children - 1)}>-</ChildrenPlusMinus>
+            <ChildrenCounter>{children}</ChildrenCounter>
+            <ChildrenPlusMinus onClick={(event) => setChildren(children + 1)}>+</ChildrenPlusMinus>
           </Category>
         </Selector>
       </GuestsPickerContainer>
