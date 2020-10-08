@@ -87,6 +87,9 @@ const GuestsApp = ({setGuestsPicker, guestsPicker}) => {
     if (children < 0) {
       setChildren(0);
     }
+    if (children > 20) {
+      setChildren(20);
+    }
   }, [children]);
 
   useEffect(() => {
