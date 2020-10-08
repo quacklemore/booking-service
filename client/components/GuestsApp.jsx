@@ -98,6 +98,9 @@ const GuestsApp = ({setGuestsPicker, guestsPicker}) => {
     if (adults < 1) {
       setAdults(1);
     }
+    if (adults > (4 * rooms)) {
+      setAdults(4 * rooms);
+    }
   }, [adults]);
 
   useEffect(() => {
@@ -111,6 +114,9 @@ const GuestsApp = ({setGuestsPicker, guestsPicker}) => {
     }
     if (adults < rooms) {
       setAdults(rooms);
+    }
+    if (rooms > 8) {
+      setRooms(8);
     }
   }, [rooms]);
 
