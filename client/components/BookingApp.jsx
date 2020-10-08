@@ -38,12 +38,15 @@ const BookingApp = ({setCheckOutPicker, setCheckInPicker, checkOutPicker, checkI
     setYear2(today.getFullYear());
 
     let id = window.location.pathname;
+
     if (id === '/') {
-      id = '/0';
+      id = '0';
+    } else {
+      id = id.slice(6)
     }
 
     axios({
-      url: `/api/low-days${id}`,
+      url: `/api/low-days/${id}`,
       method: 'get',
     })
     .then((result) => {
