@@ -40,13 +40,11 @@ const BookingApp = ({setCheckOutPicker, setCheckInPicker, checkOutPicker, checkI
     let id = window.location.pathname;
 
     if (id === '/') {
-      id = '0';
-    } else {
-      id = id.slice(6)
+      id = '/hotel0';
     }
 
     axios({
-      url: `/api/low-days/${id}`,
+      url: `/api/low-days${id}`,
       method: 'get',
     })
     .then((result) => {
