@@ -38,8 +38,9 @@ const BookingApp = ({setCheckOutPicker, setCheckInPicker, checkOutPicker, checkI
     setYear2(today.getFullYear());
 
     let id = window.location.pathname;
+
     if (id === '/') {
-      id = '/0';
+      id = '/hotel0';
     }
 
     axios({

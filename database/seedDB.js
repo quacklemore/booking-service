@@ -22,7 +22,7 @@ for (var i = 0; i < 100; i++ ) {
   location = {
     id: i,
     rooms: 10,
-    name: faker.lorem.words(),
+    name: `hotel${i}`,
     lowDays: lowDays
   };
   locations.push(db.createLocation(location));
