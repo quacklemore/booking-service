@@ -13,6 +13,7 @@ const CheckRates = styled.div`
   width: 419px;
   flex: none;
   font: 400 13.3333px Arial;
+  height: 475px;
 `;
 
 const MetaInner = styled.div`
@@ -45,6 +46,14 @@ const ReactContainer = styled.div`
   margin: 0 auto;
 `;
 
+const Deals = styled.img `
+  width: 359px;
+  margin: 15px;
+  top: 25px;
+  position: relative;
+  left: 2px;
+`;
+
 const BookingModule = () => {
   const [checkInPicker, setCheckInPicker] = useState(false);
   const [checkOutPicker, setCheckOutPicker] = useState(false);
@@ -71,6 +80,7 @@ const BookingModule = () => {
             <BookingApp setCheckInPicker={setCheckInPicker} setCheckOutPicker={setCheckOutPicker} checkInPicker={checkInPicker} checkOutPicker={checkOutPicker}/>
             <GuestsApp guestsPicker={guestsPicker} setGuestsPicker={setGuestsPicker}/>
           </ReactContainer>
+          <Deals src="https://tripadcoba-luke.s3-us-west-2.amazonaws.com/Screen+Shot+2020-10-09+at+4.29.31+PM.png"/>
         </TripSearch>
       </MetaInner>
     </CheckRates>
