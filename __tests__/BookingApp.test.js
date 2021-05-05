@@ -24,8 +24,11 @@ describe('test booking component', () => {
     let wrapper = shallow(<Booking />)
     const setShowCalendars = jest.fn();
     wrapper.setProps({
-      setShowCalendars: setShowCalendars
+      setCheckInPicker: setShowCalendars
     })
+    console.log('------------------------------------------')
+    console.dir(wrapper.getElement().props.children[0].props)
+    console.log('------------------------------------------')
     wrapper.getElement().props.children[0].props.onClick()
 
     expect(setShowCalendars).toBeCalled();
