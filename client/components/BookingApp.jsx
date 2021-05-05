@@ -93,14 +93,38 @@ const BookingApp = ({setCheckOutPicker, setCheckInPicker, checkOutPicker, checkI
   if (!checkInPicker && !checkOutPicker) {
     return (
       <StyledBookingApp>
-        <Booking  setCheckOutPicker={setCheckOutPicker} setCheckInPicker={setCheckInPicker} checkInPicker={checkInPicker} checkOutPicker={checkOutPicker} checkInDate={checkInDate} checkOutDate={checkOutDate}/>
+        <Booking
+          setCheckOutPicker={setCheckOutPicker}
+          setCheckInPicker={setCheckInPicker}
+          checkInPicker={checkInPicker}
+          checkOutPicker={checkOutPicker}
+          checkInDate={checkInDate}
+          checkOutDate={checkOutDate}/>
       </StyledBookingApp>
     );
   } else {
     return (
       <StyledBookingApp>
-        <Booking setCheckOutPicker={setCheckOutPicker} setCheckInPicker={setCheckInPicker} checkInPicker={checkInPicker} checkOutPicker={checkOutPicker} checkInDate={checkInDate} checkOutDate={checkOutDate}/>
-        <Calendar year={year} year2={year2} month1={month1} month2={month2} setMonth1={setMonth1} checkInPicker={checkInPicker} checkOutPicker={checkOutPicker} lowDays={lowDays} setCheckInDate={setCheckInDate} setCheckOutDate={setCheckOutDate} checkInDate={checkInDate} checkOutDate={checkOutDate}/>
+        <Booking
+          setCheckOutPicker={setCheckOutPicker}
+          setCheckInPicker={setCheckInPicker}
+          checkInPicker={checkInPicker}
+          checkOutPicker={checkOutPicker}
+          checkInDate={checkInDate}
+          checkOutDate={checkOutDate}/>
+        <Calendar
+          year={year}
+          year2={year2}
+          month1={month1}
+          month2={month2}
+          setMonth1={setMonth1}
+          checkInPicker={checkInPicker}
+          checkOutPicker={checkOutPicker}
+          lowDays={lowDays}
+          setCheckInDate={setCheckInDate}
+          setCheckOutDate={setCheckOutDate}
+          checkInDate={checkInDate}
+          checkOutDate={checkOutDate}/>
       </StyledBookingApp>
     );
   }
