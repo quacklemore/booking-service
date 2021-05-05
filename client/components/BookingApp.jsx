@@ -99,7 +99,8 @@ const BookingApp = ({setCheckOutPicker, setCheckInPicker, checkOutPicker, checkI
           checkInPicker={checkInPicker}
           checkOutPicker={checkOutPicker}
           checkInDate={checkInDate}
-          checkOutDate={checkOutDate}/>
+          checkOutDate={checkOutDate}
+        />
       </StyledBookingApp>
     );
   } else {
@@ -111,7 +112,8 @@ const BookingApp = ({setCheckOutPicker, setCheckInPicker, checkOutPicker, checkI
           checkInPicker={checkInPicker}
           checkOutPicker={checkOutPicker}
           checkInDate={checkInDate}
-          checkOutDate={checkOutDate}/>
+          checkOutDate={checkOutDate}
+        />
         <Calendar
           year={year}
           year2={year2}
@@ -124,7 +126,8 @@ const BookingApp = ({setCheckOutPicker, setCheckInPicker, checkOutPicker, checkI
           setCheckInDate={setCheckInDate}
           setCheckOutDate={setCheckOutDate}
           checkInDate={checkInDate}
-          checkOutDate={checkOutDate}/>
+          checkOutDate={checkOutDate}
+        />
       </StyledBookingApp>
     );
   }
