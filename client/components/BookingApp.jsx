@@ -90,7 +90,7 @@ const BookingApp = ({setCheckOutPicker, setCheckInPicker, checkOutPicker, checkI
     setCheckOutPicker(false);
   }, [checkOutDate]);
 
-  if (!checkInPicker && !checkOutPicker) {
+  //if (!checkInPicker && !checkOutPicker) {
     return (
       <StyledBookingApp>
         <Booking
@@ -101,20 +101,8 @@ const BookingApp = ({setCheckOutPicker, setCheckInPicker, checkOutPicker, checkI
           checkInDate={checkInDate}
           checkOutDate={checkOutDate}
         />
-      </StyledBookingApp>
-    );
-  } else {
-    return (
-      <StyledBookingApp>
-        <Booking
-          setCheckOutPicker={setCheckOutPicker}
-          setCheckInPicker={setCheckInPicker}
-          checkInPicker={checkInPicker}
-          checkOutPicker={checkOutPicker}
-          checkInDate={checkInDate}
-          checkOutDate={checkOutDate}
-        />
-        <Calendar
+        {/* if either picker is selected, show calendar */}
+        {(checkInPicker || checkOutPicker) && <Calendar
           year={year}
           year2={year2}
           month1={month1}
@@ -127,10 +115,9 @@ const BookingApp = ({setCheckOutPicker, setCheckInPicker, checkOutPicker, checkI
           setCheckOutDate={setCheckOutDate}
           checkInDate={checkInDate}
           checkOutDate={checkOutDate}
-        />
+        />}
       </StyledBookingApp>
     );
-  }
 }
 
 
