@@ -40,7 +40,7 @@ const BookingApp = ({setCheckOutPicker, setCheckInPicker, checkOutPicker, checkI
     let id = window.location.pathname;
 
     if (id === '/') {
-      id = '/hotel0';
+      id = '/0';
     }
 
     axios({

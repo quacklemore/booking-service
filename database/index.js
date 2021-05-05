@@ -72,7 +72,7 @@ var createLocation = (location) => {
 var getLocationInformation = (locationId) => {
   return new Promise((resolve, reject) => {
     Location.find({
-      name: locationId
+      locationId: locationId
     }).exec((err, results) => {
       if (err) {
         reject(err);

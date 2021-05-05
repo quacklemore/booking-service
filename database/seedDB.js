@@ -4,13 +4,13 @@ var faker = require('faker');
 
 
 
-var dbUrl = 'mongodb://54.189.148.129:27017/booking'
-mongoose.connect(dbUrl, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-}, (err) => {
-  mongoose.connection.dropDatabase()
-});
+// var dbUrl = 'mongodb://localhost:27017/booking'
+// mongoose.connect(dbUrl, {
+//   useNewUrlParser: true,
+//   useUnifiedTopology: true
+// }, (err) => {
+//   mongoose.connection.dropDatabase()
+// });
 
 var locations = [];
 for (var i = 0; i < 100; i++ ) {
