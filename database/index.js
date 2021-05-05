@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-var dbUrl = 'mongodb://54.189.148.129:27017/booking'
+var dbUrl = 'mongodb://localhost:27017/booking'
 mongoose.connect(dbUrl, {
   useNewUrlParser: true,
   useUnifiedTopology: true
