@@ -129,37 +129,21 @@ var CalendarDay = ({day, lowDays, setCheckInDate, checkInPicker, checkOutPicker,
       return (
         <Day isLowDay={isLowDay}></Day>
       );
-    }else if (isLowDay && isCheckIn) {
-      return(
-        <CheckInLow onClick={(event) => setCheckInDate(day)}>{day.getDate()}</CheckInLow>
-      )
-    } else if (isLowDay && isCheckOut) {
-      return (
-        <CheckOutLow onClick={(event) => setCheckInDate(day)}>{day.getDate()}</CheckOutLow>
-      );
-    } else if (isLowDay && isStay) {
-      return (
-        <StayLow onClick={(event) => setCheckInDate(day)}>{day.getDate()}</StayLow>
-      );
-    } else if (isLowDay) {
-      return (
-        <Day isLowDay={isLowDay} onClick={(event) => setCheckInDate(day)}>{day.getDate()}</Day>
-      );
     } else if (isCheckIn) {
       return (
-        <CheckIn onClick={(event) => setCheckInDate(day)}>{day.getDate()}</CheckIn>
+        <CheckIn isLowDay={isLowDay} onClick={(event) => setCheckInDate(day)}>{day.getDate()}</CheckIn>
       );
     } else if (isCheckOut) {
       return (
-        <CheckOut onClick={(event) => setCheckInDate(day)}>{day.getDate()}</CheckOut>
+        <CheckOut isLowDay={isLowDay} onClick={(event) => setCheckInDate(day)}>{day.getDate()}</CheckOut>
       );
     } else if (isStay) {
       return (
-        <StayLow onClick={(event) => setCheckInDate(day)}>{day.getDate()}</StayLow>
+        <Stay isLowDay={isLowDay} onClick={(event) => setCheckInDate(day)}>{day.getDate()}</Stay>
       );
     } else {
       return(
-        <Day onClick={(event) => setCheckInDate(day)}>{day.getDate()}</Day>
+        <Day isLowDay={isLowDay} onClick={(event) => setCheckInDate(day)}>{day.getDate()}</Day>
       )
     }
   } else {
