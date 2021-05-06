@@ -68,12 +68,8 @@ var CalendarDay = ({day, lowDays, setCheckInDate, checkInPicker, checkOutPicker,
       }
     }
     if (checkInDate && checkOutDate) {
-      if (day.getDate() > checkInDate.getDate() && day.getDate() < checkOutDate.getDate()) {
-        if (day.getMonth() >= checkInDate.getMonth() && day.getMonth() <= checkOutDate.getMonth()) {
-          if (day.getFullYear() >= checkInDate.getFullYear() && day.getFullYear() <= checkOutDate.getFullYear()) {
-            isStay = true;
-          }
-        }
+      if (cal.isBetweenDates(day, checkInDate, checkOutDate)) {
+        isStay = true;
       }
     }
     if (checkInDate) {
