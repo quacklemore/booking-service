@@ -93,6 +93,17 @@ class CalendarHelper {
       return false;
     }
   }
+
+  isBetweenDates(target, date1, date2) {
+    if (target.getDate() > date1.getDate() && target.getDate() < date2.getDate()) {
+      if (target.getMonth() >= date1.getMonth() && target.getMonth() <= date2.getMonth()) {
+        if (target.getFullYear() >= date1.getFullYear() && target.getFullYear() <= date2.getFullYear()) {
+          return true;
+        }
+      }
+    }
+    return false;
+  }
 }
 
 module.exports = CalendarHelper;
