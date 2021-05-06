@@ -37,27 +37,6 @@ const Stay = styled(Day) `
   border-color: #8c8c8c;
 `;
 
-const Low = styled(Day) `
-  border-radius: 13px;
-  background-color: #f2b203;
-  background-clip: content-box;
-`;
-
-const CheckInLow = styled(CheckIn) `
-  background-color: #f2b203;
-  background-clip: content-box;
-`;
-
-const CheckOutLow = styled(CheckOut) `
-  background-color: #f2b203;
-  background-clip: content-box;
-`;
-
-const StayLow = styled(Stay) `
-  background-color: #f2b203;
-  background-clip: content-box;
-`;
-
 var CalendarDay = ({day, lowDays, setCheckInDate, checkInPicker, checkOutPicker, setCheckOutDate, checkInDate, checkOutDate}) => {
   let isCheckIn = false;
   let isCheckOut = false;
