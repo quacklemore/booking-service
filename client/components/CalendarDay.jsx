@@ -50,7 +50,7 @@ var CalendarDay = ({day, lowDays, setCheckInDate, checkInPicker, checkOutPicker,
 
   if (lowDays && day) {
     for (var i = 0; i < lowDays.length; i++) {
-      if (lowDays[i].getDate() === day.getDate() && lowDays[i].getMonth() === day.getMonth() && lowDays[i].getFullYear() === day.getFullYear()) {
+      if (cal.areTheSameDates(lowDays[i], day)) {
         isLowDay = true;
         break;
       }
