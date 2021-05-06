@@ -146,8 +146,30 @@ const Calendar = ({month1, month2, year, year2, setMonth1, checkInPicker, checkO
                   <UnclickableLeftChevron >{'<'}</UnclickableLeftChevron>
                   <RightChevron onClick={() => setMonth1(month1 + 1)}>{'>'}</RightChevron>
                   <StyledCalendar>
-                    <CalendarMonth month={month1} year={year} month1={true} lowDays={lowDays} setCheckInDate={setCheckInDate} setCheckOutDate={setCheckOutDate} checkInPicker={checkInPicker} checkOutPicker={checkOutPicker} checkInDate={checkInDate} checkOutDate={checkOutDate}/>
-                    <CalendarMonth month={month2} year={year2} month1={false} lowDays={lowDays} setCheckInDate={setCheckInDate} setCheckOutDate={setCheckOutDate} checkInPicker={checkInPicker} checkOutPicker={checkOutPicker} checkInDate={checkInDate} checkOutDate={checkOutDate}/>
+                    <CalendarMonth
+                      month={month1}
+                      year={year}
+                      month1={true}
+                      lowDays={lowDays}
+                      setCheckInDate={setCheckInDate}
+                      setCheckOutDate={setCheckOutDate}
+                      checkInPicker={checkInPicker}
+                      checkOutPicker={checkOutPicker}
+                      checkInDate={checkInDate}
+                      checkOutDate={checkOutDate}
+                    />
+                    <CalendarMonth
+                      month={month2}
+                      year={year2}
+                      month1={false}
+                      lowDays={lowDays}
+                      setCheckInDate={setCheckInDate}
+                      setCheckOutDate={setCheckOutDate}
+                      checkInPicker={checkInPicker}
+                      checkOutPicker={checkOutPicker}
+                      checkInDate={checkInDate}
+                      checkOutDate={checkOutDate}
+                    />
                   </StyledCalendar>
                   <BottomBar />
               </DayPicker>
@@ -172,8 +194,30 @@ const Calendar = ({month1, month2, year, year2, setMonth1, checkInPicker, checkO
                   <LeftChevron onClick={() => setMonth1(month1 - 1)}>{'<'}</LeftChevron>
                   <RightChevron onClick={() => setMonth1(month1 + 1)}>{'>'}</RightChevron>
                   <StyledCalendar>
-                    <CalendarMonth month={month1} year={year} month1={true} lowDays={lowDays} setCheckInDate={setCheckInDate} setCheckOutDate={setCheckOutDate} checkInPicker={checkInPicker} checkOutPicker={checkOutPicker} checkInDate={checkInDate} checkOutDate={checkOutDate}/>
-                    <CalendarMonth month={month2} year={year2} month1={false} lowDays={lowDays} setCheckInDate={setCheckInDate} setCheckOutDate={setCheckOutDate} checkInPicker={checkInPicker} checkOutPicker={checkOutPicker} checkInDate={checkInDate} checkOutDate={checkOutDate}/>
+                    <CalendarMonth
+                      month={month1}
+                      year={year}
+                      month1={true}
+                      lowDays={lowDays}
+                      setCheckInDate={setCheckInDate}
+                      setCheckOutDate={setCheckOutDate}
+                      checkInPicker={checkInPicker}
+                      checkOutPicker={checkOutPicker}
+                      checkInDate={checkInDate}
+                      checkOutDate={checkOutDate}
+                    />
+                    <CalendarMonth
+                      month={month2}
+                      year={year2}
+                      month1={false}
+                      lowDays={lowDays}
+                      setCheckInDate={setCheckInDate}
+                      setCheckOutDate={setCheckOutDate}
+                      checkInPicker={checkInPicker}
+                      checkOutPicker={checkOutPicker}
+                      checkInDate={checkInDate}
+                      checkOutDate={checkOutDate}
+                    />
                   </StyledCalendar>
                   <BottomBar />
               </DayPicker>
@@ -200,8 +244,28 @@ const Calendar = ({month1, month2, year, year2, setMonth1, checkInPicker, checkO
                   <UnclickableLeftChevron >{'<'}</UnclickableLeftChevron>
                   <RightChevron onClick={() => setMonth1(month1 + 1)}>{'>'}</RightChevron>
                   <StyledCalendar>
-                    <CalendarMonth month={month1} year={year} month1={true} lowDays={lowDays} setCheckOutDate={setCheckOutDate} checkInPicker={checkInPicker} checkOutPicker={checkOutPicker} checkInDate={checkInDate} checkOutDate={checkOutDate}/>
-                    <CalendarMonth month={month2} year={year2} month1={false} lowDays={lowDays} setCheckOutDate={setCheckOutDate} checkInPicker={checkInPicker} checkOutPicker={checkOutPicker} checkInDate={checkInDate} checkOutDate={checkOutDate}/>
+                    <CalendarMonth
+                      month={month1}
+                      year={year}
+                      month1={true}
+                      lowDays={lowDays}
+                      setCheckOutDate={setCheckOutDate}
+                      checkInPicker={checkInPicker}
+                      checkOutPicker={checkOutPicker}
+                      checkInDate={checkInDate}
+                      checkOutDate={checkOutDate}
+                    />
+                    <CalendarMonth
+                      month={month2}
+                      year={year2}
+                      month1={false}
+                      lowDays={lowDays}
+                      setCheckOutDate={setCheckOutDate}
+                      checkInPicker={checkInPicker}
+                      checkOutPicker={checkOutPicker}
+                      checkInDate={checkInDate}
+                      checkOutDate={checkOutDate}
+                    />
                   </StyledCalendar>
                   <BottomBar />
               </DayPicker>
@@ -226,8 +290,28 @@ const Calendar = ({month1, month2, year, year2, setMonth1, checkInPicker, checkO
                   <LeftChevron onClick={() => setMonth1(month1 - 1)}>{'<'}</LeftChevron>
                   <RightChevron onClick={() => setMonth1(month1 + 1)}>{'>'}</RightChevron>
                   <StyledCalendar>
-                    <CalendarMonth month={month1} year={year} month1={true} lowDays={lowDays} setCheckOutDate={setCheckOutDate} checkInPicker={checkInPicker} checkOutPicker={checkOutPicker} checkInDate={checkInDate} checkOutDate={checkOutDate}/>
-                    <CalendarMonth month={month2} year={year2} month1={false} lowDays={lowDays} setCheckOutDate={setCheckOutDate} checkInPicker={checkInPicker} checkOutPicker={checkOutPicker} checkInDate={checkInDate} checkOutDate={checkOutDate}/>
+                    <CalendarMonth
+                      month={month1}
+                      year={year}
+                      month1={true}
+                      lowDays={lowDays}
+                      setCheckOutDate={setCheckOutDate}
+                      checkInPicker={checkInPicker}
+                      checkOutPicker={checkOutPicker}
+                      checkInDate={checkInDate}
+                      checkOutDate={checkOutDate}
+                    />
+                    <CalendarMonth
+                      month={month2}
+                      year={year2}
+                      month1={false}
+                      lowDays={lowDays}
+                      setCheckOutDate={setCheckOutDate}
+                      checkInPicker={checkInPicker}
+                      checkOutPicker={checkOutPicker}
+                      checkInDate={checkInDate}
+                      checkOutDate={checkOutDate}
+                    />
                   </StyledCalendar>
                   <BottomBar />
               </DayPicker>
