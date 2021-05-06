@@ -28,7 +28,19 @@ var CalendarWeek = ({weeks, start, week, setCheckInDate, month, year, lowDays, s
 
   return (
     <Week>
-      {days.map((day, index) => <CalendarDay day={day} lowDays={lowDays} key={index} setCheckInDate={setCheckInDate} setCheckOutDate={setCheckOutDate} checkInPicker={checkInPicker} checkOutPicker={checkOutPicker} checkInDate={checkInDate} checkOutDate={checkOutDate}/>)}
+      {days.map((day, index) =>
+        <CalendarDay
+          day={day}
+          lowDays={lowDays}
+          key={index}
+          setCheckInDate={setCheckInDate}
+          setCheckOutDate={setCheckOutDate}
+          checkInPicker={checkInPicker}
+          checkOutPicker={checkOutPicker}
+          checkInDate={checkInDate}
+          checkOutDate={checkOutDate}
+        />
+      )}
     </Week>
   )
 }
