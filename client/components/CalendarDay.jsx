@@ -17,57 +17,45 @@ const Day = styled.div`
   vertical-align: top;
   position: relative;
   z-index: 1;
+  border-radius: ${props => props.isLowDay ? '13px' : ''};
+  background-color: ${props => props.isLowDay ? '#f2b203' : ''};
+  background-clip: ${props => props.isLowDay ? 'content-box' : ''};
 `;
 
 const CheckIn = styled(Day) `
-  font-weight: 700;
   border-color: #00aa6c;
   border-radius: 2px 0 0 2px;
   z-index: 2;
 `;
 
 const CheckOut = styled(Day) `
-  font-weight: 700;
   border-color: #c00;
   border-radius: 0 2px 2px 0;
 `;
 
 const Stay = styled(Day) `
   border-color: #8c8c8c;
-  font-weight: 700;
 `;
 
 const Low = styled(Day) `
   border-radius: 13px;
   background-color: #f2b203;
   background-clip: content-box;
-  height: 30px;
-  width: 30px;
-  padding: 6px;
 `;
 
 const CheckInLow = styled(CheckIn) `
   background-color: #f2b203;
   background-clip: content-box;
-  height: 30px;
-  width: 30px;
-  padding: 6px;
 `;
 
 const CheckOutLow = styled(CheckOut) `
   background-color: #f2b203;
   background-clip: content-box;
-  height: 30px;
-  width: 30px;
-  padding: 6px;
 `;
 
 const StayLow = styled(Stay) `
   background-color: #f2b203;
   background-clip: content-box;
-  height: 30px;
-  width: 30px;
-  padding: 6px;
 `;
 
 var CalendarDay = ({day, lowDays, setCheckInDate, checkInPicker, checkOutPicker, setCheckOutDate, checkInDate, checkOutDate}) => {
@@ -137,7 +125,11 @@ var CalendarDay = ({day, lowDays, setCheckInDate, checkInPicker, checkOutPicker,
       return (
         <Day />
       )
-    } else if (isLowDay && isCheckIn) {
+    } else if (isBeforeCheckIn) {
+      return (
+        <Day isLowDay={isLowDay}></Day>
+      );
+    }else if (isLowDay && isCheckIn) {
       return(
         <CheckInLow onClick={(event) => setCheckInDate(day)}>{day.getDate()}</CheckInLow>
       )
@@ -151,7 +143,7 @@ var CalendarDay = ({day, lowDays, setCheckInDate, checkInPicker, checkOutPicker,
       );
     } else if (isLowDay) {
       return (
-        <Low onClick={(event) => setCheckInDate(day)}>{day.getDate()}</Low>
+        <Day isLowDay={isLowDay} onClick={(event) => setCheckInDate(day)}>{day.getDate()}</Day>
       );
     } else if (isCheckIn) {
       return (
