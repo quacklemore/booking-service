@@ -129,8 +129,7 @@ const Calendar = ({month1, month2, year, year2, setMonth1, checkInPicker, checkO
   if (previousMonth < today.getMonth() && previousYear <= today.getFullYear() || previousYear < today.getFullYear) {
     beforeNow = true;
   }
-
-  if (beforeNow) {
+  if (checkInPicker) {
     return (
       <CheckInCalendar id="calendar">
         <CalendarBox>
@@ -143,7 +142,7 @@ const Calendar = ({month1, month2, year, year2, setMonth1, checkInPicker, checkO
               </TopBarInset>
             </TopBar>
             <DayPicker>
-                <UnclickableLeftChevron >{'<'}</UnclickableLeftChevron>
+                {beforeNow ? <UnclickableLeftChevron >{'<'}</UnclickableLeftChevron> : <LeftChevron onClick={() => setMonth1(month1 - 1)}>{'<'}</LeftChevron>}
                 <RightChevron onClick={() => setMonth1(month1 + 1)}>{'>'}</RightChevron>
                 <StyledCalendar>
                   <CalendarMonth
@@ -178,9 +177,9 @@ const Calendar = ({month1, month2, year, year2, setMonth1, checkInPicker, checkO
         </CalendarBox>
       </CheckInCalendar>
     );
-  } else {
+  } else if (checkOutPicker) {
     return (
-      <CheckInCalendar id="calendar">
+      <CheckOutCalendar id="calendar">
         <CalendarBox>
           <div>
             <TopBar>
@@ -191,7 +190,7 @@ const Calendar = ({month1, month2, year, year2, setMonth1, checkInPicker, checkO
               </TopBarInset>
             </TopBar>
             <DayPicker>
-                <LeftChevron onClick={() => setMonth1(month1 - 1)}>{'<'}</LeftChevron>
+              {beforeNow ? <UnclickableLeftChevron >{'<'}</UnclickableLeftChevron> : <LeftChevron onClick={() => setMonth1(month1 - 1)}>{'<'}</LeftChevron>}
                 <RightChevron onClick={() => setMonth1(month1 + 1)}>{'>'}</RightChevron>
                 <StyledCalendar>
                   <CalendarMonth
@@ -199,7 +198,6 @@ const Calendar = ({month1, month2, year, year2, setMonth1, checkInPicker, checkO
                     year={year}
                     month1={true}
                     lowDays={lowDays}
-                    setCheckInDate={setCheckInDate}
                     setCheckOutDate={setCheckOutDate}
                     checkInPicker={checkInPicker}
                     checkOutPicker={checkOutPicker}
@@ -207,24 +205,22 @@ const Calendar = ({month1, month2, year, year2, setMonth1, checkInPicker, checkO
                     checkOutDate={checkOutDate}
                   />
                   <CalendarMonth
-                    month={month2}
-                    year={year2}
-                    month1={false}
-                    lowDays={lowDays}
-                    setCheckInDate={setCheckInDate}
-                    setCheckOutDate={setCheckOutDate}
-                    checkInPicker={checkInPicker}
-                    checkOutPicker={checkOutPicker}
-                    checkInDate={checkInDate}
-                    checkOutDate={checkOutDate}
-                  />
+                  month={month2}
+                  year={year2}
+                  month1={false}
+                  lowDays={lowDays}
+                  setCheckOutDate={setCheckOutDate}
+                  checkInPicker={checkInPicker}
+                  checkOutPicker={checkOutPicker}
+                  checkInDate={checkInDate}
+                  checkOutDate={checkOutDate}/>
                 </StyledCalendar>
                 <BottomBar />
             </DayPicker>
           </div>
           <PickerPointer></PickerPointer>
         </CalendarBox>
-      </CheckInCalendar>
+      </CheckOutCalendar>
     );
   }
 }
