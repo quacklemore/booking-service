@@ -77,8 +77,16 @@ const BookingModule = () => {
       <MetaInner>
         <TripSearch>
           <ReactContainer>
-            <BookingApp setCheckInPicker={setCheckInPicker} setCheckOutPicker={setCheckOutPicker} checkInPicker={checkInPicker} checkOutPicker={checkOutPicker}/>
-            <GuestsApp guestsPicker={guestsPicker} setGuestsPicker={setGuestsPicker}/>
+            <BookingApp
+              setCheckInPicker={setCheckInPicker}
+              setCheckOutPicker={setCheckOutPicker}
+              checkInPicker={checkInPicker}
+              checkOutPicker={checkOutPicker}
+            />
+            <GuestsApp
+              guestsPicker={guestsPicker}
+              setGuestsPicker={setGuestsPicker}
+            />
           </ReactContainer>
           <Deals src="https://tripadcoba-luke.s3-us-west-2.amazonaws.com/Screen+Shot+2020-10-09+at+4.29.31+PM.png"/>
         </TripSearch>
