@@ -48,15 +48,16 @@ var CalendarDay = ({day, lowDays, setCheckInDate, checkInPicker, checkOutPicker,
   let isAfterCheckOut = false;
   let cal = new CalendarHelper();
 
-  if (lowDays && day) {
-    for (var i = 0; i < lowDays.length; i++) {
-      if (cal.areTheSameDates(lowDays[i], day)) {
-        isLowDay = true;
-        break;
+
+  if (day) {
+    if (lowDays) {
+      for (var i = 0; i < lowDays.length; i++) {
+        if (cal.areTheSameDates(lowDays[i], day)) {
+          isLowDay = true;
+          break;
+        }
       }
     }
-  }
-  if (day) {
     if (checkInDate) {
       if (cal.areTheSameDates(checkInDate, day)) {
         isCheckIn = true;
