@@ -21,47 +21,20 @@ const CheckInOutDate = styled.span `
 `;
 
 const BookingDate = ({isCheckInDate, date}) => {
-  if (isCheckInDate) {
-    if (!date) {
-      return (
-        <span>
-          <CheckInOutLabel>Check In</CheckInOutLabel>
-          <CheckInOutDate>- / - / -</CheckInOutDate>
-        </span>
-      );
-    } else {
-      let checkInDay = CalendarHelper.prototype.getDay(date.getDay());
-      let checkInDate = date.getDate();
-      let checkInMonth = date.getMonth() + 1;
-      let checkInYear = date.getFullYear().toString().slice(-2);
-      return (
-        <span>
-          <CheckInOutLabel>Check In</CheckInOutLabel>
-          <CheckInOutDate>{`${checkInDay}, ${checkInMonth}/${checkInDate}/${checkInYear}`}</CheckInOutDate>
-        </span>
-      );
-    }
-  } else {
-    if (!date) {
-      return (
-        <span>
-          <CheckInOutLabel>Check Out</CheckInOutLabel>
-          <CheckInOutDate>- / - / -</CheckInOutDate>
-        </span>
-      );
-    } else {
-      let checkOutDay = CalendarHelper.prototype.getDay(date.getDay());
-      let checkOutDate = date.getDate();
-      let checkOutMonth = date.getMonth() + 1;
-      let checkOutYear = date.getFullYear().toString().slice(-2);
-      return (
-        <span>
-          <CheckInOutLabel>Check Out</CheckInOutLabel>
-          <CheckInOutDate>{`${checkOutDay}, ${checkOutMonth}/${checkOutDate}/${checkOutYear}`}</CheckInOutDate>
-        </span>
-      );
-    }
+  if (date) {
+    var dayOfTheWeek = CalendarHelper.prototype.getDay(date.getDay());
+    var day = date.getDate();
+    var month = date.getMonth() + 1;
+    var year = date.getFullYear().toString().slice(-2);
   }
+  return (
+    <span>
+      {isCheckInDate ? <CheckInOutLabel>Check In</CheckInOutLabel> : <CheckInOutLabel>Check Out</CheckInOutLabel>}
+      {date ? <CheckInOutDate>{`${dayOfTheWeek}, ${month}/${day}/${year}`}</CheckInOutDate> : <CheckInOutDate>- / - / -</CheckInOutDate>}
+    </span>
+  );
+
+
 }
 
 export default BookingDate;
