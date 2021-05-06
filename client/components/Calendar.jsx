@@ -13,14 +13,6 @@ const StyledCalendarComponent = styled.div `
   left: ${props => props.isCheckIn ? '225px' : '409px'};
 `;
 
-const CheckInCalendar = styled(StyledCalendarComponent) `
-  left: 225px;
-`;
-
-const CheckOutCalendar = styled(StyledCalendarComponent) `
-  left: 409px;
-`;
-
 const CalendarBox = styled.div `
   display: flex;
   flex-direction: column;
