@@ -40,6 +40,10 @@ const DatePicker = styled.div `
   margin: 0;
   padding: 0;
   width: 166px;
+  opacity: ${props => props.selected ? 1 : .3};
+  &:hover {
+    opacity: 1;
+  }
 `;
 const CheckInPicker = styled(DatePicker) `
     margin-left: 8px;
@@ -47,32 +51,10 @@ const CheckInPicker = styled(DatePicker) `
     box-shadow: -8px 0 0 #00aa6c;
 `;
 
-const CheckInPickerSelected = styled(CheckInPicker) `
-  border-color: #00aa6c;
-`;
-
-const CheckInPickerNotSelected = styled(CheckInPicker) `
-   opacity: .3;
-   &:hover {
-    opacity: 1;
-   }
-`;
-
 const CheckOutPicker = styled(DatePicker) `
     margin-left: 8px;
     border-left-width: 0;
     box-shadow: -8px 0 0 #c00;
-`;
-
-const CheckOutPickerNotSelected = styled(CheckOutPicker) `
-  opacity: .3;
-  &:hover {
-    opacity: 1;
-   }
-`;
-
-const CheckOutPickerSelected = styled(CheckOutPicker) `
-  border-color: #c00;
 `;
 
 const CalendarIcon = styled.span `
@@ -86,70 +68,26 @@ const CalendarIcon = styled.span `
 
 
 let Booking = ({setCheckInPicker, setCheckOutPicker, checkInPicker, checkOutPicker, checkInDate, checkOutDate}) => {
-  if (!checkOutPicker && !checkInPicker) {
-    return (
-      <div>
-        <DatesButton onClick={event => setCheckInPicker(!checkInPicker)}>
-          <CheckInPicker>
-            <CalendarIcon>
-              <CalendarTodaySharpIcon/>
-            </CalendarIcon>
-            <BookingDate isCheckInDate={true} date={checkInDate}/>
-          </CheckInPicker>
-        </DatesButton>
-        <DatesButton onClick={event => setCheckOutPicker(!checkOutPicker)}>
-          <CheckOutPicker>
-            <CalendarIcon>
-              <CalendarTodaySharpIcon/>
-            </CalendarIcon>
-            <BookingDate isCheckInDate={false} date={checkOutDate}/>
-          </CheckOutPicker>
-        </DatesButton>
-      </div>
-    );
-  } else if (checkInPicker) {
-    return (
-      <div>
-        <DatesButton onClick={event => setCheckInPicker(!checkInPicker)}>
-          <CheckInPickerSelected>
-            <CalendarIcon>
-              <CalendarTodaySharpIcon/>
-            </CalendarIcon>
-            <BookingDate isCheckInDate={true} date={checkInDate}/>
-          </CheckInPickerSelected>
-        </DatesButton>
-        <DatesButton onClick={event => setCheckOutPicker(!checkOutPicker)}>
-          <CheckOutPickerNotSelected>
-            <CalendarIcon>
-              <CalendarTodaySharpIcon/>
-            </CalendarIcon>
-            <BookingDate isCheckInDate={false} date={checkOutDate}/>
-          </CheckOutPickerNotSelected>
-        </DatesButton>
-      </div>
-    );
-  } else if (checkOutPicker) {
-    return (
-      <div>
-        <DatesButton onClick={event => setCheckInPicker(!checkInPicker)}>
-          <CheckInPickerNotSelected>
-            <CalendarIcon>
-              <CalendarTodaySharpIcon/>
-            </CalendarIcon>
-            <BookingDate isCheckInDate={true} date={checkInDate}/>
-          </CheckInPickerNotSelected>
-        </DatesButton>
-        <DatesButton onClick={event => setCheckOutPicker(!checkOutPicker)}>
-          <CheckOutPickerSelected>
-            <CalendarIcon>
-              <CalendarTodaySharpIcon/>
-            </CalendarIcon>
-            <BookingDate isCheckInDate={false} date={checkOutDate}/>
-          </CheckOutPickerSelected>
-        </DatesButton>
-      </div>
-    );
-  }
+  return (
+    <div>
+      <DatesButton onClick={event => setCheckInPicker(!checkInPicker)}>
+        <CheckInPicker selected={checkInPicker || (!checkInPicker && !checkOutPicker)} >
+          <CalendarIcon>
+            <CalendarTodaySharpIcon/>
+          </CalendarIcon>
+          <BookingDate isCheckInDate={true} date={checkInDate}/>
+        </CheckInPicker>
+      </DatesButton>
+      <DatesButton onClick={event => setCheckOutPicker(!checkOutPicker)}>
+        <CheckOutPicker selected={checkOutPicker || (!checkInPicker && !checkOutPicker)}>
+          <CalendarIcon>
+            <CalendarTodaySharpIcon/>
+          </CalendarIcon>
+          <BookingDate isCheckInDate={false} date={checkOutDate}/>
+        </CheckOutPicker>
+      </DatesButton>
+    </div>
+  );
 }
 
 export default Booking;
