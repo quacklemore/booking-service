@@ -123,36 +123,29 @@ const GuestsApp = ({setGuestsPicker, guestsPicker}) => {
     }
   }, [rooms]);
 
-  if (guestsPicker) {
-    return (
-      <div>
-        <GuestsPicker showPicker={guestsPicker} setShowPicker={setGuestsPicker} children={children} adults={adults} rooms={rooms} setAdults={setAdults} setRooms={setRooms} setChildren={setChildren}/>
-        <GuestButton onClick={(event) => setGuestsPicker(!guestsPicker)}>
-          <GuestsInfoContainer>
-            <GuestsIcon><SupervisorAccountSharpIcon /></GuestsIcon>
-            <InfoContainer>
-              <GuestsTitle >Guests</GuestsTitle>
-      <GuestInfo>{rooms} {displayRooms}, {adults} {displayAdults}, {children} {displayChildren}</GuestInfo>
-            </InfoContainer>
-          </GuestsInfoContainer>
-        </GuestButton>
-      </div>
-     );
-  } else {
-    return (
-      <div>
-        <GuestButton onClick={(event) => setGuestsPicker(!guestsPicker)}>
-          <GuestsInfoContainer>
-            <GuestsIcon><SupervisorAccountSharpIcon /></GuestsIcon>
-            <InfoContainer>
-              <GuestsTitle >Guests</GuestsTitle>
-        <GuestInfo>{rooms} {displayRooms}, {adults} {displayAdults}, {children} {displayChildren}</GuestInfo>
-            </InfoContainer>
-          </GuestsInfoContainer>
-        </GuestButton>
-      </div>
-    );
-  }
+  return (
+    <div>
+      {guestsPicker && <GuestsPicker
+        showPicker={guestsPicker}
+        setShowPicker={setGuestsPicker}
+        children={children}
+        adults={adults}
+        rooms={rooms}
+        setAdults={setAdults}
+        setRooms={setRooms}
+        setChildren={setChildren}
+      />}
+      <GuestButton onClick={(event) => setGuestsPicker(!guestsPicker)}>
+        <GuestsInfoContainer>
+          <GuestsIcon><SupervisorAccountSharpIcon /></GuestsIcon>
+          <InfoContainer>
+            <GuestsTitle >Guests</GuestsTitle>
+            <GuestInfo>{rooms} {displayRooms}, {adults} {displayAdults}, {children} {displayChildren}</GuestInfo>
+          </InfoContainer>
+        </GuestsInfoContainer>
+      </GuestButton>
+    </div>
+  );
 }
 
 export default GuestsApp;
