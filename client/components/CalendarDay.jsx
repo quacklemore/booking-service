@@ -82,17 +82,6 @@ var CalendarDay = ({day, lowDays, setCheckInDate, checkInPicker, checkOutPicker,
         }
       }
     }
-
-    // if (checkOutDate) {
-    //   if (day.getDate() >= checkOutDate.getDate()) {
-    //     if (day.getMonth() >= checkOutDate.getMonth()) {
-    //       if (day.getFullYear() >= checkOutDate.getFullYear()) {
-    //         isAfterCheckOut = true;
-    //       }
-    //     }
-    //   }
-    // }
-
   }
 
 
