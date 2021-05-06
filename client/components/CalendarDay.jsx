@@ -2,6 +2,8 @@ import React, {useState, useEffect} from 'react';
 import ReactDOM from 'react-dom';
 import styled from 'styled-components';
 
+import CalendarHelper from '../helpers/calendar.js';
+
 const Day = styled.div`
   font-weight: 700;
   flex: 1 0;
@@ -44,6 +46,7 @@ var CalendarDay = ({day, lowDays, setCheckInDate, checkInPicker, checkOutPicker,
   let isStay = false;
   let isBeforeCheckIn = false;
   let isAfterCheckOut = false;
+  let cal = new CalendarHelper();
 
   if (lowDays && day) {
     for (var i = 0; i < lowDays.length; i++) {
@@ -55,12 +58,12 @@ var CalendarDay = ({day, lowDays, setCheckInDate, checkInPicker, checkOutPicker,
   }
   if (day) {
     if (checkInDate) {
-      if (checkInDate.getDate() === day.getDate() && checkInDate.getMonth() === day.getMonth() && checkInDate.getFullYear() === day.getFullYear()) {
+      if (cal.areTheSameDates(checkInDate, day)) {
         isCheckIn = true;
       }
     }
     if (checkOutDate) {
-      if (checkOutDate.getDate() === day.getDate() && checkOutDate.getMonth() === day.getMonth() && checkOutDate.getFullYear() === day.getFullYear()) {
+      if (cal.areTheSameDates(checkOutDate, day)) {
         isCheckOut = true;
       }
     }
@@ -85,36 +88,31 @@ var CalendarDay = ({day, lowDays, setCheckInDate, checkInPicker, checkOutPicker,
   }
 
 
-
-
-
-
-    if (!day) {
-      return (
-        <Day />
-      )
-    } else if (isBeforeCheckIn) {
-      return (
-        <Day isLowDay={isLowDay}></Day>
-      );
-    } else if (isCheckIn) {
-
-      return (
-        checkInPicker ? <CheckIn isLowDay={isLowDay} onClick={(event) => setCheckInDate(day)}>{day.getDate()}</CheckIn> : <CheckIn isLowDay={isLowDay} onClick={(event) => setCheckOutDate(day)}>{day.getDate()}</CheckIn>
-      );
-    } else if (isCheckOut) {
-      return (
-        checkInPicker ? <CheckOut isLowDay={isLowDay} onClick={(event) => setCheckInDate(day)}>{day.getDate()}</CheckOut> : <CheckOut isLowDay={isLowDay} onClick={(event) => setCheckOutDate(day)}>{day.getDate()}</CheckOut>
-      );
-    } else if (isStay) {
-      return (
-        checkInPicker ? <Stay isLowDay={isLowDay} onClick={(event) => setCheckInDate(day)}>{day.getDate()}</Stay> : <Stay isLowDay={isLowDay} onClick={(event) => setCheckOutDate(day)}>{day.getDate()}</Stay>
-      );
-    } else {
-      return(
-        checkInPicker ? <Day isLowDay={isLowDay} onClick={(event) => setCheckInDate(day)}>{day.getDate()}</Day> : <Day isLowDay={isLowDay} onClick={(event) => setCheckOutDate(day)}>{day.getDate()}</Day>
-      )
-    }
+  if (!day) {
+    return (
+      <Day />
+    )
+  } else if (isBeforeCheckIn) {
+    return (
+      <Day isLowDay={isLowDay}></Day>
+    );
+  } else if (isCheckIn) {
+    return (
+      checkInPicker ? <CheckIn isLowDay={isLowDay} onClick={(event) => setCheckInDate(day)}>{day.getDate()}</CheckIn> : <CheckIn isLowDay={isLowDay} onClick={(event) => setCheckOutDate(day)}>{day.getDate()}</CheckIn>
+    );
+  } else if (isCheckOut) {
+    return (
+      checkInPicker ? <CheckOut isLowDay={isLowDay} onClick={(event) => setCheckInDate(day)}>{day.getDate()}</CheckOut> : <CheckOut isLowDay={isLowDay} onClick={(event) => setCheckOutDate(day)}>{day.getDate()}</CheckOut>
+    );
+  } else if (isStay) {
+    return (
+      checkInPicker ? <Stay isLowDay={isLowDay} onClick={(event) => setCheckInDate(day)}>{day.getDate()}</Stay> : <Stay isLowDay={isLowDay} onClick={(event) => setCheckOutDate(day)}>{day.getDate()}</Stay>
+    );
+  } else {
+    return(
+      checkInPicker ? <Day isLowDay={isLowDay} onClick={(event) => setCheckInDate(day)}>{day.getDate()}</Day> : <Day isLowDay={isLowDay} onClick={(event) => setCheckOutDate(day)}>{day.getDate()}</Day>
+    )
+  }
 }
 
 export default CalendarDay;
