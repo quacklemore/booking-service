@@ -37,10 +37,24 @@ var CalendarMonth = ({month, year, setCheckInDate, setCheckOutDate, month1, lowD
   return (
     <Month hasBorder={!month1}>
       <MonthHeading>
-      {`${cal.monthName(month)} ${year}`}
+        {`${cal.monthName(month)} ${year}`}
       </MonthHeading>
       <DaysOfTheWeek />
-      { weeks.map((week, index) => <CalendarWeek weeks={weeks} start={(index === 0) ? first : 0} week={index} key={index}  month={month} year={year} lowDays={lowDays} setCheckInDate={setCheckInDate} setCheckOutDate={setCheckOutDate}  setCheckOutDate={setCheckOutDate} checkInPicker={checkInPicker} checkOutPicker={checkOutPicker} checkInDate={checkInDate} checkOutDate={checkOutDate}/>)}
+      { weeks.map((week, index) =>
+        <CalendarWeek
+          weeks={weeks}
+          start={(index === 0) ? first : 0}
+          week={index} key={index}  month={month}
+          year={year} lowDays={lowDays}
+          setCheckInDate={setCheckInDate}
+          setCheckOutDate={setCheckOutDate}
+          setCheckOutDate={setCheckOutDate}
+          checkInPicker={checkInPicker}
+          checkOutPicker={checkOutPicker}
+          checkInDate={checkInDate}
+          checkOutDate={checkOutDate}
+        />
+      ) }
     </Month>
   );
 }
