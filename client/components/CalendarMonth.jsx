@@ -16,10 +16,6 @@ const Month = styled.div`
   width: 250px;
 `;
 
-const NoBorderMonth = styled(Month)`
-  border-width: 0 0 0 0;
-`;
-
 const MonthHeading = styled.div `
     position: relative;
     box-sizing: border-box;
