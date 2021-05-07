@@ -74,12 +74,8 @@ var CalendarDay = ({day, lowDays, setCheckInDate, checkInPicker, checkOutPicker,
       }
     }
     if (checkInDate) {
-      if (day.getDate() < checkInDate.getDate()) {
-        if (day.getMonth() < checkInDate.getMonth()) {
-          if (day.getFullYear() < checkInDate.getFullYear()) {
-            isBeforeCheckIn = true;
-          }
-        }
+      if (cal.isBeforeDate(day, checkInDate)) {
+        isBeforeCheckIn = true;
       }
     }
   }
@@ -91,7 +87,7 @@ var CalendarDay = ({day, lowDays, setCheckInDate, checkInPicker, checkOutPicker,
     )
   } else if (isBeforeCheckIn) {
     return (
-      <Day isLowDay={isLowDay}></Day>
+      <Day isLowDay={isLowDay}>{day.getDate()}</Day>
     );
   } else if (isCheckIn) {
     return (
