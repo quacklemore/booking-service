@@ -104,6 +104,19 @@ class CalendarHelper {
     }
     return false;
   }
+
+  isBeforeDate(target, date) {
+    if (target.getFullYear() < date.getFullYear()) {
+      return true;
+    }
+    if (target.getFullYear() === date.getFullYear() && target.getMonth() < date.getMonth()) {
+      return true;
+    }
+    if (target.getFullYear() === date.getFullYear() && target.getMonth() === date.getMonth() && target.getDate() < date.getDate()) {
+      return true;
+    }
+    return false;
+  }
 }
 
 module.exports = CalendarHelper;
